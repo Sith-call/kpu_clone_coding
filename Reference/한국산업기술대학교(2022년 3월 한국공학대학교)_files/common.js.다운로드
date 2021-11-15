@@ -1,0 +1,1463 @@
+if(location.href.indexOf("/contents/service/")!=-1){
+	document.location.href="/service_2016/index.do";
+}
+
+document.domain = "kpu.ac.kr";
+
+document.write("<script type='text/javascript' src='/js/commonSelectFooter.js'></script>");
+
+//숫자+"."인지 체크
+function isNumericDot( value )
+{	
+	if (value == 8 || value == 9 || value == 13 || (value >= 37 && value <= 40) || value == 46 || (value >= 48 && value <= 57) ||  value == 110 || value == 190 || value == 192 || value == 27 || value == 116 || (value >= 96 && value <= 105))
+		 return true;
+	else return false;
+}
+// 숫자+"."만 입력
+// onkeydown을 사용할 것 2004/05/08 - 박일형
+function num_chekDot() { 
+  if (isNumericDot(event.keyCode)==false){
+		alert("숫자만 입력 가능합니다.");
+		event.returnValue=false;
+	}
+}
+
+//숫자+"-"인지 체크
+function isNumericHyphen( value )
+{	
+	if (value == 8 || value == 9 || value == 13 || (value >= 35 && value <= 40) || value == 46 || (value >= 48 && value <= 57) || value == 109 || value == 189 || value == 27 || value == 116 || (value >= 96 && value <= 105))
+		 return true;
+	else return false;
+}
+
+// 숫자+"-"만 입력
+// onkeydown을 사용할 것 2004/05/08 - 박일형
+function num_chekHyphen() { 
+  if (isNumericHyphen(event.keyCode)==false){
+		alert("숫자와 '-'만 입력 가능합니다.");
+		event.returnValue=false;
+	}
+}
+
+//숫자인지 체크
+function isNumeric( value )
+{
+	if (value == 8 || value == 9 || value == 13 || (value >= 37 && value <= 40) || value == 46 || value == 27 || value == 116 || (value >= 48 && value <= 57) || (value >= 96 && value <= 105))
+		 return true;
+	else return false;
+}
+// 숫자만 입력
+// onkeydown을 사용할 것 2004/05/08 - 박일형
+function num_chek() { 
+  if (isNumeric(event.keyCode)==false){
+		alert("숫자만 입력 가능합니다.");
+		event.returnValue=false;
+	}
+}
+// 파일 부분에 텍스트 입력 못하게 하기 위해서
+function fileWriteNot(){  
+  event.returnValue=false;
+}
+
+// 기능: 문자열의 앞, 뒤 공백을 제거한다
+// 파라미터: 문자열
+// 리턴값: 문자열
+function trim(str)
+{
+	var s = str.replace(/^ */, "");
+	s = s.replace(/ *$/, "");
+	return  s;
+}
+
+//개발 관련 공통 js
+
+// 새창 띄우기
+// 파라미터 설명
+// name  : 윈도우 창 이름
+// url   : 뿌려줄 페이지
+// width : 윈도우 창 넓이
+// height: 윈도우 창 높이
+// toolbar : 툴바 나타낼지 여부
+// menubar : 메뉴바 나타낼지 여부
+// statusbar : 상태바 나타낼지 여부
+// scrollbar : 스크롤바 나타낼지 여부
+// resizable : 리사이즈 기능 여부
+// 예제  : open_window('./test.do', 'test', '' ,'' ,'200','100','','','','','')
+function open_window(url, name, left, top, width, height, toolbar, menubar, statusbar, scrollbar, resizable)
+{
+  toolbar_str = toolbar ? 'yes' : 'no';
+  menubar_str = menubar ? 'yes' : 'no';
+  statusbar_str = statusbar ? 'yes' : 'no';
+  scrollbar_str = scrollbar ? 'yes' : 'no';
+  resizable_str = resizable ? 'yes' : 'no';
+  /*
+  target = window.open(url, name, 'left='+left+', top='+top+', width='+width+', height='+height+', toolbar='+toolbar_str+', menubar=' +menubar_str+', status='+statusbar_str+', scrollbars='+scrollbar_str+', resizable='+resizable_str);
+  target.focus();
+  */
+
+  if (url != null && url != ""){
+   window.open(url, name, 'left='+left+', top='+top+', width='+width+', height='+height+', toolbar='+toolbar_str+', menubar=' +menubar_str+', status='+statusbar_str+', scrollbars='+scrollbar_str+', resizable='+resizable_str);
+  }
+}
+
+
+//개발 관련 공통 js
+
+// 새창 띄우기
+// 파라미터 설명
+// name  : 윈도우 창 이름
+// url   : 뿌려줄 페이지
+// width : 윈도우 창 넓이
+// height: 윈도우 창 높이
+// toolbar : 툴바 나타낼지 여부
+// menubar : 메뉴바 나타낼지 여부
+// statusbar : 상태바 나타낼지 여부
+// scrollbar : 스크롤바 나타낼지 여부
+// resizable : 리사이즈 기능 여부
+// 예제  : open_window('./test.do', 'test', '' ,'' ,'200','100','','','','','')
+function open_window1(url, name, left, top, width, height, toolbar, menubar, statusbar, scrollbar, resizable)
+{
+  toolbar_str = toolbar ? 'yes' : 'no';
+  menubar_str = menubar ? 'yes' : 'no';
+  statusbar_str = statusbar ? 'yes' : 'no';
+  scrollbar_str = scrollbar ? 'yes' : 'no';
+  resizable_str = resizable ? 'yes' : 'no';
+  /*
+  target = window.open(url, name, 'left='+left+', top='+top+', width='+width+', height='+height+', toolbar='+toolbar_str+', menubar=' +menubar_str+', status='+statusbar_str+', scrollbars='+scrollbar_str+', resizable='+resizable_str);
+  target.focus();
+  */
+
+  if (url != null && url != ""){
+  var temp = url.substring(0,7);
+  if(temp!="http://"){
+		url = "http://"+url;
+  }
+   window.open(url, name, 'left='+left+', top='+top+', width='+width+', height='+height+', toolbar='+toolbar_str+', menubar=' +menubar_str+', status='+statusbar_str+', scrollbars='+scrollbar_str+', resizable='+resizable_str);
+  }
+}
+
+
+// 검색어 특수 문자 체크 
+// return : false (검색안됨), true (특수문자검색 및 메세지)
+function chkSpeChar( oInputCtrl)
+{
+	var speChar = " `~!#$%^&*+=|\\[]{}:;-,<>/?'\"";
+	for(var iCnt = 0; iCnt < speChar.length; iCnt++)
+	{
+		special = speChar.substr(iCnt, 1);
+		if( oInputCtrl.value.indexOf(special) != -1)
+		{
+			alert("특수문자[" + special + "]를 검색어에 입력 할 수 없습니다.");
+			return true;
+		}
+	}
+	return false;
+}
+
+//행당월의 날짜 셀렉트 박스
+function chkDay(o,valYear, valMonth, valDay, dayValue){
+	var tyearName,tMonthName,tDayName, lastDay,i;
+	tyearName = eval(o + "." + valYear);
+	tMonthName = eval(o + "." + valMonth);
+	tDayName = eval(o + "." + valDay);
+	//lert(tyearName.selectedIndex)
+  //alert(tyearName.selectedIndex);
+  //alert(tMonthName.selectedIndex);
+	if(tyearName.selectedIndex>0 && tMonthName.selectedIndex>0){
+		lastDay = getDayNum(parseInt(tyearName.value,10), parseInt(tMonthName.value,10));
+		tDayName.options.length = lastDay+1;
+		tDayName.options[0].value = "";
+		tDayName.options[0].text  = "일";
+		
+		for(i=0 ; i < lastDay ; i++) {
+        //alert(tDayName.options[i].value);
+		 if (i+1<10){
+			 tDayName.options[i+1].value = "0"+(i+1);		  
+			 tDayName.options[i+1].text  = "0"+(i+1);
+		 }else{
+			 tDayName.options[i+1].value = i+1;		  
+			 tDayName.options[i+1].text  = i+1;
+		 }
+		}
+		if (dayValue!=""){
+			tDayName.selectedIndex = dayValue;
+		}
+		tDayName.focus();
+	}else{		
+		tDayName.options.length = 1;
+		tDayName.options[0].value = "";
+		tDayName.options[0].text  = "일";
+	}
+}
+
+//해당월의 마지막날짜
+function getDayNum(valYear, valMonth){
+	var monthDays;
+		monthDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+		if ((((valYear % 4) == 0) && ((valYear % 100) != 0)) || ((valYear % 400) == 0)){
+			monthDays[1] = 29;
+		}
+		return monthDays[parseInt(valMonth)-1];
+}
+
+// 메일주소 체크
+function chkEmailAddr( sEmail)
+{
+	var sRegExp = /([\w|\-]+)@([\w|\-]+)\.(\w+)/;
+	return sRegExp.test( sEmail)
+}
+
+//textarea 박스의 글자 제어 함수
+//pInName : (예 document.frmForm.content)
+function showMsgLen(pInName, pLen, pMsgLen){  
+   if (getStrLen(eval(pInName+".value"))>pLen){
+	  alert("영문 " + pLen + "자, 한글 " + pLen/2 + " 이내로 작성해 주세요.");
+	  eval(pInName+".focus()");
+   }
+	  pMsgLen.innerHTML = getStrLen(eval(pInName+".value")) + '/' + pLen;
+}
+function getStrLen(str){
+	var len=0, j;
+	
+	for (i=0, j=str.length;
+		i<j;
+		i++, len++)
+	{
+		if ( (str.charCodeAt(i)<0)||(str.charCodeAt(i)>127) )
+		{
+			len = len+1;
+		}
+	}
+	return len;
+}
+
+//다음 텝으로 이동하기 (주민번호나 전화 번호 등)
+function numTeb(o, pLen, pPre, pNext){
+	if (eval("o." + pPre + ".value.length==" + pLen)){
+    eval("o." + pNext + ".focus();");
+		return;
+	}
+}
+
+
+// Form Validation:
+// @author 우동식
+// control : text box name
+// msg : ("제목을 입력하세요.")
+// return : false (form validation fail), true (form validation 성공)
+
+function isFilled(control, msg) {	
+	if (control.value == null || control.value.length == 0) {
+		alert(msg);
+		control.focus();
+		control.select();
+		return false;
+	}
+	return true;
+}
+// Form Validation:
+// @author 우동식
+// control : radio box 
+// return : false (form validation fail), true (form validation 성공)
+function isChecked(control, msg) {	// radio button.
+	var val = false;
+	for (var i=0; i<control.length; i++) {
+		if (control[i].checked == true) val = true;
+	}
+	if(val==false) alert(msg);
+	return val;
+}
+// Form Validation:
+// @author 우동식
+// control : select box 
+// return : false (form validation fail), true (form validation 성공)
+function isSelected(control, msg) {	// drop box.	
+	var val = false;
+	for (var i=1; i<control.length; i++) {
+		if (control.options[i].selected == true) val = true;		
+	}
+	if(val==false && msg.length>0) {
+		control.focus();
+		alert(msg);
+	}
+	return val;
+}
+
+
+// 리스트의 체크박스 전체 선택 및 해지 함수 시작
+/*전체 선택 해제*/
+function AllChk(o, pAll, pChk){
+  var value;
+  var tmpChkAll, tmpChk;
+  tmpChkAll = eval("o." + pAll);
+  tmpChk = eval("o." + pChk);   
+  if (tmpChkAll.checked==true){
+    value=true;
+  }else{
+    value=false;
+  }
+  if ( tmpChk != null ){
+    var olen = eval(tmpChk.length);
+    if ( olen != null ){
+      for ( var i = 0 ; i < tmpChk.length ; i++ ){
+        tmpChk[i].checked = value;
+       }
+    }else{
+      tmpChk.checked = value;
+    }
+  }
+}
+/*각 체크 박스를 선택하여 전체 체크박스 제어*/
+function chkBox(o, pAll, pChk){
+  var value;
+  var tmpChkAll, tmpChk;
+  tmpChkAll = eval("o." + pAll);
+  tmpChk = eval("o." + pChk);
+  value = true;
+  if ( tmpChk != null ){
+    var olen = eval(tmpChk.length);
+    if ( olen != null ){
+      for ( var i = 0 ; i < tmpChk.length ; i++ ){
+        if (tmpChk[i].checked == false){
+          value=false;
+          break;
+        }
+      }
+    }else{
+      if (tmpChk.checked == false){
+          value=false;
+      }
+    }
+  }
+  tmpChkAll.checked=value;
+}
+ // 리스트의 체크박스 전체 선택 및 해지 함수 끝
+//선택 삭제 확인
+function checkDelete(fName, o){
+  var sum;
+  sum=0;
+  var tmpChk;
+  tmpChk = eval("o." + fName)
+  if ( tmpChk != null ){
+    var olen = eval(tmpChk.length);
+    if ( olen != null ){
+      for ( var i = 0 ; i < tmpChk.length ; i++ ){
+        if (tmpChk[i].checked == true){
+          sum++;
+        }
+      }
+    }else{
+    
+      if (tmpChk.checked==true){
+        sum=1;
+      } 
+    }
+  }
+  
+  if (sum==0){
+     alert("선택하셔야 합니다.");
+     return false;
+  }
+  if (confirm("삭제하시겠습니까?") == true){
+	  return true;
+  }  
+  return false;
+}
+
+ /*금지단어 팝업창*/
+ function curseWordOpen(){
+  var winWord = window.open("/cmsm/prohibitionlist.do",winWord , "width=420,height=530,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no");
+ }
+
+ /*페이징 폼 submit*/
+function listPage(val){
+  document.listFrm.page.value = val;
+  document.listFrm.submit();
+}
+//웹에디터 부분
+function BackGroundColor(o){
+  var bgcolorChk;
+	bgcolorChk = o.tbContentElement.DOM.body.style.backgroundColor;
+    if (bgcolorChk==""){
+			o.contentValue.value = o.tbContentElement.DOM.body.innerHTML;
+		}else{
+			o.contentValue.value = "<div style='background-color: " + bgcolorChk + "'>" + o.tbContentElement.DOM.body.innerHTML + "</div>";
+		}
+}
+
+
+// 신고 팝업 스크립트
+function openReport(o){
+ window.open("","reportForm","width=490,height=350,top=0,left=0,scrollbars=no,resizable=no")
+  eval(o+".submit()");
+}
+
+
+// 쿠키값 가져 오기 (주로 오픈창에서 하루만 부분 제에 할때 사용
+function getCookie(name) {
+	var nameOfCookie=name+"=";
+	
+  var x=0;
+  while(x<=document.cookie.length) {
+	var y=(x+nameOfCookie.length)
+	if(document.cookie.substring(x,y)==nameOfCookie) {
+      if((endOfCookie=document.cookie.indexOf(";",y))==-1)
+	    endOfCookie=document.cookie.length;
+	  return unescape(document.cookie.substring(y,endOfCookie));
+    }
+    x=document.cookie.indexOf(" ",x) +1;
+	if(x==0)
+	  break;
+  }
+  return "";
+}
+
+//로그인 체크
+function chkLogin(o){
+  if(trim(o.loginName.value)==""){
+    alert("아이디를 입력하세요.");
+    o.loginName.focus();
+    return false;
+  }
+  if(trim(o.password.value)==""){
+    alert("비밀번호를 입력하세요.");
+    o.password.focus();
+    return false;
+  }
+  return;
+}
+
+//로그인 체크
+function chkLoginSSO(o){
+  if(trim(o.id.value)==""){
+    alert("아이디를 입력하세요.");
+    o.id.focus();
+    return false;
+  }
+  if(trim(o.passwd.value)==""){
+    alert("비밀번호를 입력하세요.");
+    o.passwd.focus();
+    return false;
+  }
+	return;
+}
+
+//로그인 체크
+function chkLoginSSO_1(o){
+  if(trim(o.kpuinput01.value)==""){
+    alert("아이디를 입력하세요.");
+    o.kpuinput01.focus();
+    return false;
+  }
+  if(trim(o.kpuinput02.value)==""){
+    alert("비밀번호를 입력하세요.");
+    o.kpuinput02.focus();
+    return false;
+  }
+  //o.action = "http://sso.kpu.ac.kr/sso/sso/pmi-sso-kpulogin-uid-kpupassword.jsp";
+  o.action = "https://sso.kpu.ac.kr/sso/sso/pmi-sso-kpulogin-uid-kpupassword.jsp";
+  o.submit();
+  //return;
+} 
+
+function chkLogin_master(o){
+  if(trim(o.loginName.value)==""){
+    alert("아이디를 입력하세요.");
+    o.loginName.focus();
+    return false;
+  }
+  if(trim(o.password.value)==""){
+    alert("비밀번호를 입력하세요.");
+    o.password.focus();
+    return false;
+  }
+  return;
+}
+
+//공인인증서 로그인 체크
+function chkLoginSSO_2(o){
+  if(trim(o.ssn1.value)==""){
+    alert("주민등록번호를 입력하세요.");
+    o.ssn1.focus();
+    return false;
+  }
+  if(trim(o.ssn2.value)==""){
+    alert("주민등록번호를 입력하세요.");
+    o.ssn2.focus();
+    return false;
+  }
+  return;
+}
+
+//커서이동
+function moveCursor1(o) {
+	if(o.ssn1.value.length == 6)
+		o.ssn2.focus();
+}
+
+//전체 오픈
+function linkPopOpen(value, wValue, hValue){
+  open_window( value, "linkPop", "10", "10", wValue, hValue, "", "", "", "auto", ""); 
+}
+
+
+// 이미지 width 만 줄이기
+function resizeImage(o, pWidth){
+	var MAX_WIDTH=pWidth;
+	if (o.width > MAX_WIDTH) {
+		o.width = MAX_WIDTH;
+	}
+}
+// 이미지 width, height 줄이기
+function resizeImageWH(o, pWidth, pHeight){
+	var MAX_WIDTH=pWidth;
+  var MAX_HEIGHT=pHeight;
+	if (o.width > MAX_WIDTH) {
+		o.width = MAX_WIDTH;
+	}
+  if (o.height > MAX_HEIGHT) {
+		o.height = MAX_HEIGHT;
+	}
+}
+// 이미지 팝업창 윈도우 크기에 따라서 제어
+function ImageReSizeWindow(o){
+  var objBody, height, width
+  var version;
+  version = navigator.appVersion;
+  objBody = document.body
+  height = objBody.offsetHeight + (objBody.offsetHeight - objBody.clientHeight)
+  width = objBody.offsetWidth + (objBody.offsetWidth - objBody.clientWidth)
+  if (o.width > o.height) {
+    if(o.width <= width){      
+      width = o.width + 50;
+      height = o.height + 120;
+    }else if(o.width < window.screen.Width && o.width > width){
+      width = o.width + 50;
+      height = o.height + 120;
+    }else if(o.width >= window.screen.Width){
+      width = window.screen.Width - 100;
+      height = window.screen.Height - 100;
+    }
+    if(version.indexOf("Windows NT 5.1") > -1){
+      height = height  + 20;
+    }
+    window.resizeTo(width, height); 
+	}else{
+    if(o.height <= height){      
+      width = o.width + 50;
+      height = o.height + 120;
+    }else if(o.height < window.screen.Height && o.height > height){
+      width = o.width + 50;
+      height = o.height + 120;
+    }else if(o.height >= window.screen.Width){
+      width = window.screen.Width - 100;
+      height = window.screen.Height - 100;
+    }
+    if(version.indexOf("Windows NT 5.1") > -1){
+      height = height  + 20;
+    }
+    window.resizeTo(width, height);
+  }
+}
+
+// 메인 , 우측 마우스 온오버시 이미지 변경 스크립트 시작
+function replaceImg(imgName,obj)
+{
+  obj.src = imgName;
+}
+
+function showL(num){
+  var temp;
+  for(i=3;i<=6;i++){
+    temp = "layer_" + i;
+    if(i == num){
+      document.all[temp].style.display = "";
+    } else {
+      document.all[temp].style.display = "none";
+    }
+  }
+}
+
+function hideL(){
+  var temp;
+  for(i=3;i<=6;i++){
+    temp = "layer_" + i;
+    document.all[temp].style.display = "none";
+  }
+}
+//검색
+function searchSend(o) {
+	if(trim(o.qt.value)=="") {
+		alert("검색어를 입력하세요");
+		o.qt.focus();
+		return false;
+	}
+	return;
+}
+
+
+
+//  달력
+function show_cal(url, what, fName, check){
+	if(check==null || check==""){
+		check = "";
+	}
+	var txt = new String("<iframe src=\"" + url + "?what=" + what + "&formName=" + fName + "&check="+check+"\" width=\"142\" height=\"162\" frameborder=\"0\" scrolling=\"No\" ></iframe>");
+	document.all[what].innerHTML = txt;
+}
+
+
+// textarea 글자수 제한
+function fc_chk_byte(aro_name,ari_max,pMsgLen){
+
+	var len=0, j;
+	var li_len = 0;
+	var str = aro_name.value;
+	var ls_str2 = "";
+	for (i=0, j=str.length;
+		i<j;
+		i++, len++)
+	{
+		if ( (str.charCodeAt(i)<0)||(str.charCodeAt(i)>127) )
+		{
+			len = len+1;
+		}
+	    // 전체 크기가 li_max를 넘지않으면
+		if(len <= ari_max)
+		{
+			li_len = i + 1;
+		}
+
+	}
+	if (len > ari_max){
+		alert( ari_max + " 글자를 초과 입력할수 없습니다. \n 초과된 내용은 자동으로 삭제 됩니다. ");
+		ls_str2 = str.substr(0, (li_len-1));
+		aro_name.value = ls_str2;
+	    len = ari_max
+	}
+	if ((pMsgLen!="") && (pMsgLen!=null))
+	{
+	pMsgLen.innerHTML = '[ ' +len + '/' + ari_max + ' ]';
+    }
+}
+
+function checkSpace( str ){
+ if(str.search(/\s/) != -1){
+  return 1;
+ }
+ else {
+	 return "";
+ }
+}
+
+// 디렉터리명 체크
+function validID( formName , str ){
+	var retVal = checkSpace( str ); 
+	if( retVal != "" ) {
+	    eval("document."+formName+".msg.value='디렉터리명은 빈 공간 없이 연속된 영문 소문자와 숫자만 사용할 수 있습니다.'");
+		return true; 
+	}
+	if( str.indexOf("admin") == 0 || str.indexOf("master") == 0 || str.indexOf("superadmin") == 0 || str.indexOf("webmaster") == 0 ){
+	  eval("document."+formName+".msg.value='등록할수 없는 디렉터리명입니다.'");
+	  return true;
+	}
+	for(var z=0;z<10;z++){
+		if( str.charAt(0)==z) {
+			eval("document."+formName+".msg.value='디렉터리명의 첫문자는 숫자로 시작할수 없습니다.'");
+			return true;
+		}
+	}
+	/* checkFormat  var isID = /^[a-z0-9_]{4,12}$/; */
+	var isID = /^[a-z0-9]{4,12}$/;
+	if( !isID.test(str) ) {
+        eval("document."+formName+".msg.value='디렉터리명은 4~12자의 영문 소문자와 숫자만 사용할 수 있습니다.'");
+		return true; 
+	}
+	return false;
+}
+
+// 비밀번호 체크
+function validPWD( formName , str ){
+	var retVal = checkSpace( str ); 
+	if( retVal!=null && retVal != "" ) {
+  eval("document."+formName+".msg.value='비밀번호는 빈 공간 없이 연속된 영문 소문자와 숫자만 사용할 수 있습니다.'");
+		return true; 
+	} 
+	/* checkFormat  */
+	var isID = /^[a-z0-9]{4,12}$/;
+	if( !isID.test(str) ) {
+  eval("document."+formName+".msg.value='비밀번호는 4~12자의 영문 소문자와 숫자만 사용할 수 있습니다.'");
+		return true; 
+	}
+	return false;
+}
+
+// 비밀번호 입력 체크 (20141118 보안정책 적용)
+function validPwd2(str) {
+	if(str.length < 10) {
+		alert("비밀번호를 영문 대소문자와 숫자 조합 또는 영문 대소문자와 특수문자 조합으로 최소 10자리 이상 입력해 주세요.\n(특수문자 허용범위 : '!', '@', '#', '$', '%', '^', '&', '*', '?', '_', '~', ',', '.')");
+		return true;
+	}
+	
+	var chk_num = str.search(/[0-9]/g);
+	var chk_eng = str.search(/[a-zA-Z]/g);
+	var chk_etc = str.search(/[!@#$%^&*?_~,.]/g);
+	if((chk_eng+chk_num)<1 && (chk_eng+chk_etc)<1) {
+		alert("비밀번호를 영문 대소문자와 숫자 조합 또는 영문 대소문자와 특수문자 조합으로 최소 10자리 이상 입력해 주세요.\n(특수문자 허용범위 : '!', '@', '#', '$', '%', '^', '&', '*', '?', '_', '~', ',', '.')");
+		return true;
+	}
+	
+	return false;
+}
+
+function checkImgFormat_add(imgPath) 
+	{
+		if ( imgPath.indexOf(".PNG") != -1 ||
+			imgPath.indexOf(".GIF") != -1 ||
+			imgPath.indexOf(".png") != -1 ||
+			imgPath.indexOf(".gif") != -1 ||
+			imgPath.indexOf(".jpg") != -1 ||
+			imgPath.indexOf(".GIF") != -1 ||
+			imgPath.indexOf(".JPG") != -1) {
+			return true;
+		}
+		else 
+		{
+			if ( imgPath != "" ) {
+				alert("지원하지 않는 파일형식이므로 첨부하실수없습니다.");
+				return false;
+			} else {
+				return false;
+			}
+		}
+	}
+
+//비밀번호 체크(영문, 숫자만 허용)
+function isAlphaNum( value )
+{	
+	if(value == 8 || value == 9 || value == 13 || value == 21 || (value >= 35 && value <= 40) || (value >= 45 && value <= 46) || (value >= 48 && value <= 57) || (value >= 65 && value <= 90) || (value >= 96 && value <= 105) || value == 27 || value == 116)
+		 return true;
+	else return false;
+}
+
+//비밀번호 체크(영문, 숫자만 허용)
+// onkeydown을 사용할 것 2004/05/08 - 박일형
+function alphaNumCheck() { 
+  if (isAlphaNum(event.keyCode)==false){
+		alert("영문과 숫자만 입력 가능합니다.");
+		event.returnValue=false;
+	}
+}
+
+function newContentImg(tmpDate){
+  var chkDate = new Date();  
+  var yearStrTmp, monthStrTmp, dayStrTmp;   
+  yearStrTmp = chkDate.getYear();    
+  monthStrTmp = chkDate.getMonth()+1;   
+  dayStrTmp = chkDate.getDate();    
+  if (monthStrTmp<10){    
+     monthStrTmp = '0' + monthStrTmp;    
+  }    
+  if (dayStrTmp<10){   
+    dayStrTmp = '0' + dayStrTmp;  
+  }   
+  yearStrTmp = '' + yearStrTmp +  monthStrTmp + dayStrTmp;  
+  if (tmpDate<yearStrTmp){
+  }else{
+    document.write ('<img src=/image/portal_main_18.gif width=10 height=9 align=texttop>');
+  }
+}
+
+
+function resizeImg(imgObj,w,h) {
+	var imgOriginal = new Image();
+	imgOriginal.visibleImgObj = imgObj;
+	imgOriginal.onload = function() { resizeImgSub(this,w,h); }  
+	imgOriginal.src = imgObj.src;
+}
+
+function resizeImgSub(img,w,h) {
+  var imgTemp = new Image();
+  imgTemp.src = img.src; 
+  
+  if ( imgTemp.width > w || imgTemp.height > h ){
+  if ( (img.width / w) > (img.height / h) )
+    img.visibleImgObj.height = Math.round(img.height * (w / img.width));
+  else
+    img.visibleImgObj.width = Math.round(img.width * (h / img.height));
+  } else {
+    img.visibleImgObj.width = imgTemp.width;
+    img.visibleImgObj.height = imgTemp.height;
+  }
+}
+
+function reportMember(userID, reportID, returnURL){
+
+  if(reportID == null || reportID == ""){
+    alert("로그인후 이용가능합니다.");
+    return;
+  }else{
+      
+    window.open("/reportmemberpopup.do?mode=member&userID="+userID+"&reportID="+reportID+"&returnURL="+returnURL, "reportMember" , "width=400,height=300,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no");
+
+    return;
+  }
+
+  return;
+}
+
+function reportaContent(userID, reportID, keyNum, contentNum, returnURL, mode){
+
+  if(reportID == null || reportID == ""){
+    alert("로그인후 이용가능합니다.");
+    return;
+  }else{
+    window.open("/reportcontentpopup.do?mode="+mode+"&userID="+userID+"&reportID="+reportID+"&returnURL="+returnURL+"&keyNum="+keyNum+"&contentNum="+contentNum, "reportContent" , "width=400,height=300,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no");
+
+    return;
+  }
+
+  return;
+}
+
+// 천단위 오토 콤마_mute
+function comma_mute(formName, returnName) { 
+    var num = trim(eval(formName+"."+returnName+".value"));
+    if (eval(formName+"."+returnName+".value.length") >= 4) {
+        re = /^$|,/g; 
+        num = num.replace(re, ""); 
+        fl="" 
+//        if(isNaN(num)) { alert("문자는 사용할 수 없습니다.");return 0} 
+        if(isNaN(num)) { return 0;formName.returnName.focus();formName.returnName.select();} 
+        if(num==0) return num 
+        if(num<0){ 
+            num=num*(-1) 
+            fl="-" 
+        }
+        else{ 
+            num=num*1 //처음 입력값이 0부터 시작할때 이것을 제거한다. 
+        } 
+            num = new String(num) 
+            temp="" 
+            co=3 
+            num_len=num.length 
+        while (num_len>0){ 
+            num_len=num_len-co 
+            if(num_len<0){co=num_len+co;num_len=0} 
+            temp=","+num.substr(num_len,co)+temp 
+        } 
+        var mtmp = fl+temp.substr(1);
+        eval(formName+"."+returnName+".value = '" + mtmp + "'" );
+    }
+} 
+
+// 천단위 오토 콤마
+function comma(formName, returnName) { 
+    var num = trim(eval(formName+"."+returnName+".value"));
+    if (eval(formName+"."+returnName+".value.length") >= 4) {
+        re = /^$|,/g; 
+        num = num.replace(re, ""); 
+        fl="" 
+        if(isNaN(num)) { alert("문자는 사용할 수 없습니다.");return 0} 
+        if(num==0) return num 
+        if(num<0){ 
+            num=num*(-1) 
+            fl="-" 
+        }
+        else{ 
+            num=num*1 //처음 입력값이 0부터 시작할때 이것을 제거한다. 
+        } 
+            num = new String(num) 
+            temp="" 
+            co=3 
+            num_len=num.length 
+        while (num_len>0){ 
+            num_len=num_len-co 
+            if(num_len<0){co=num_len+co;num_len=0} 
+            temp=","+num.substr(num_len,co)+temp 
+        } 
+        var mtmp = fl+temp.substr(1);
+        eval(formName+"."+returnName+".value = '" + mtmp + "'" );
+    }
+} 
+
+// 숫자만 입력받도록.... 
+function OnlyNumber() {
+	if((event.keyCode < 47 && event.keyCode != 8) || (event.keyCode > 57)) {
+		event.returnValue = false;
+	}
+}
+
+// 숫자와 대시(-)만 입력받도록....
+function OnlyNumberDash() {
+	if((event.keyCode < 47 && event.keyCode != 8) || (event.keyCode > 57) || (event.keyCode == 45)) {
+		event.returnValue = false;
+	}
+}
+
+// 숫자만 입력
+function OnlyNumberNew() {
+	var objEv = event.srcElement;
+	var numPattern = /[^0-9]/g;
+	objEv.value = objEv.value.replace(numPattern, "");
+}
+
+// 숫자와 소수점만 입력
+function OnlyNumberDotNew() {
+	var objEv = event.srcElement;
+	var numPattern = /[^.0-9]/g;
+	objEv.value = objEv.value.replace(numPattern, "");
+}
+
+//숫자와 대시(-)만 입력 (전화번호 입력시)
+function OnlyNumberDashNew() {
+	var objEv = event.srcElement;
+	var numPattern = /[^-0-9]/g;
+	objEv.value = objEv.value.replace(numPattern, "");
+}
+
+//숫자, 영어 / 김현규 / 20180425
+function OnlyNumberEngNew() {
+	var objEv = event.srcElement;
+	var numPattern = /[^0-9a-zA-Z]/g;
+	objEv.value = objEv.value.replace(numPattern, "");
+}
+
+// 입력 문자 확인(입력 했는지 여부 확인)
+function lengthCheck( formName , str , text ){
+    var uID;
+    uID = trim(eval("document."+formName+"."+str+".value"));
+    if(uID.length==0){
+      eval("document."+formName+".msg.value='"+trim(text)+" 을(를) 입력 또는 선택해 주세요.'");
+      eval("document."+formName+"."+str+".value=''");
+      return true;
+    }
+    else{
+      return false;
+    }
+}
+
+// 학생기본정보 팝업
+function studentViewPop(user, menuCode, ccode) {
+	url = "/cmsm/stuviewpopup.do?hakbun="+user+"&menuCode="+menuCode+"&ccode="+ccode;
+	// open_window(url, "학생기본정보", "0", "0", "508", "380", "", "", "", "auto", "");
+	open_window(url, "학생기본정보", "0", "0", "480", "380", "", "", "", "auto", "");
+}
+
+// 일반 수강생기본정보 팝업
+function generalViewPop(user, menuCode, ccode) {
+	url = "/cmsm/stuviewpopupgeneral.do?hakbun="+user+"&menuCode="+menuCode+"&ccode="+ccode;
+	// open_window(url, "학생기본정보", "0", "0", "508", "330", "", "", "", "auto", "");
+	open_window(url, "학생기본정보", "0", "0", "480", "330", "", "", "", "auto", "");
+}
+
+//학생 검색
+function studentSearch( formName, pHakbun, pWebid, pHname, pYundohakgi, yundohakgi, menuCode ){
+  url = "/cmsm/stusearchpopup.do?formName="+formName+"&pHakbun="+pHakbun+"&pWebid="+pWebid+"&pHname="+pHname+"&pYundohakgi="+pYundohakgi+"&yundohakgi="+yundohakgi+"&menuCode="+menuCode;
+  open_window(url, "학생검색", "0", "0", "508", "400", "", "", "", "auto", ""); 
+}
+
+
+
+  /** 전체 선택. */
+  function allcheck(allObj, obj, arrayObj){
+
+    if(obj==null || allObj==null) return;
+
+    if(obj.length==null) {
+      if (allObj.checked) {
+        obj.checked = true;
+      } else {
+        obj.checked = false;
+      }
+    } else {
+      for( var i=0; i<obj.length; i++) {
+        if (allObj.checked) {
+          obj[i].checked = true;
+        } else {
+          obj[i].checked = false;
+        }
+      }
+    }
+  }
+  /** 체크 된 항목이 있는지 확인 */
+  function isCheckedOne(obj) {
+      var indexNum = 0;
+    if(obj == null) return false;
+
+    if(obj.length==null) {
+      if(obj.checked) indexNum++;
+    } else {
+      for(var i=0; i<obj.length; i++) {
+        if(obj[i].checked) indexNum++;
+      }
+    }
+      if(indexNum>0){
+          form01.indexnum.value=indexNum;
+          return true;
+      }else{
+          return false;
+      }
+  }
+
+
+	function openMove(val, type){
+		var o = document.form01;
+		if(!isCheckedOne(o.ckIndex_ar)) {
+			alert("이동할 게시물 대상이 없습니다.\n\n(왼쪽의 체크박스를 선택하세요.)");
+			return false;
+		}else{
+			var url = "boarddatamove.do?bbsConfigFK="+val+"&type="+type;
+			winstyle="left=200, top=200, width=800, height=600,scrollbars=yes";        
+			window.open (url,"boardmove",winstyle);    
+			return ;
+		}
+		return false;
+	}
+
+
+	function MM_swapImgRestore() { //v3.0
+	  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+	}
+
+	function MM_preloadImages() { //v3.0
+	  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+		var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+		if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+	}
+
+	function MM_findObj(n, d) { //v4.01
+	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+		d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+	  if(!x && d.getElementById) x=d.getElementById(n); return x;
+	}
+
+	function MM_swapImage() { //v3.0
+	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+	}
+
+
+// 네이버_블로그_팝업창 열기 popview() 
+
+function popview(url){
+  window.open("/front/imageZoom.jsp?url=" + url,"popview","scrollbars=yes,width=100,height=100");
+  //window.open("http://blog.naver.com/main/imageZoom.jsp?url=" + url,"mainview","scrollbars=yes,width=100,height=100");
+}
+
+// 네이버_블로그_팝업창 열기 popview()
+
+
+function open_window_journal(url)
+{	
+  if (url != null && url != ""){
+   window.open(url,'thewin','height=723,width=1006,left=100,top=100,toolbar=no,scrollbars=no');
+  }
+	self.close();
+} 
+
+// 수강신청창 열기
+function f_window(w, h) { 
+//	if (confirm("수강신청 시스템으로 다시 로그인합니다. 계속하시겠습니까? \n\n- 신입생은 입학후(3월2일)에는 학번이 생성되므로, 학교 홈페이지에 회원가입 해야하며, \n등록한 ID와 패스워드로 접속해야 수강신청이 가능합니다.") == true){
+	if (confirm("수강신청 시스템으로 다시 로그인합니다. 계속하시겠습니까? \n\n- 팝업 차단 및 구글툴바 사용을 해제해 주시기 바랍니다.") == true){
+		win = window.open('http://www.kpu.ac.kr:8000/course', 'SugangWin', 'toolbar=no, menubar=no, location=no, resizable=yes, x=800,y=600,width=' + w + ',height=' + h); 
+		win.focus(); 
+	} 
+	else 
+	{
+		return;
+	 }  
+}  
+
+/*
+function getFileSize(filePath)
+    {
+        var len = 0;
+        
+        if ( navigator.appName.indexOf("Netscape") != -1) {
+            try {
+                netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+            } catch(e) {
+                alert("signed.applets.codebase_principal_support를 설정해주세요!\n"+e);
+                return -1;
+            }
+            try {
+                var file = Components.classes["@mozilla.org/file/local;1"]
+                                     .createInstance(Components.interfaces.nsILocalFile);
+                file.initWithPath ( filePath );
+                
+                len = file.fileSize;
+            } catch(e) {
+                alert("에러가 발생했습니다.:"+e);
+            }
+        } else if (navigator.appName.indexOf('Microsoft') != -1) {
+            var img = new Image();
+            img.dynsrc = filePath;
+            len = img.fileSize;
+        }
+        return len;
+    }
+*/
+
+
+function getFileSize(filePath)
+    {
+        var len = 0;
+        if ( navigator.appName.indexOf("Netscape") != -1) {
+            try {
+                netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+            } catch(e) {
+                alert("signed.applets.codebase_principal_support를 설정해주세요!\n"+e);
+                return -1;
+            }
+            try {
+                var file = Components.classes["@mozilla.org/file/local;1"]
+                                     .createInstance(Components.interfaces.nsILocalFile);
+                file.initWithPath ( filePath );
+                
+                len = file.fileSize;
+            } catch(e) {
+                alert("에러가 발생했습니다.:"+e);
+            }
+        } else if (navigator.appName.indexOf('Microsoft') != -1) {
+			
+			if(navigator.userAgent.indexOf('MSIE') > 0 && (navigator.appVersion.indexOf('MSIE 7.') > 0) || navigator.appVersion.indexOf('MSIE 8.') > 0 || navigator.appVersion.indexOf('MSIE 9.') > 0){
+				if(filePath != ""){
+					var fso = new ActiveXObject("Scripting.FileSystemObject");
+					var f = fso.GetFile(filePath);
+					len = f.Size;
+					f = null;
+					fso = null;
+				}
+
+			}else{
+				var img = new Image();
+				img.dynsrc = filePath;
+				len = img.fileSize;
+			}
+
+        }
+        return len;
+    }
+
+
+
+
+
+/** 산기대 도메인 **/
+var Domain_URL = "http://www.kpu.ac.kr";
+var Domain_Sub_URL = "http://subweb.kpu.ac.kr"; //학과,부서도메인
+
+
+try{ document.execCommand("BackgroundImageCache", false, true); }catch(e){}
+var imageroot = "";
+var user = {
+    IE			:!!(window.attachEvent && !window.opera),
+    IE6			:((navigator.userAgent.toLowerCase().indexOf("msie 6")!=-1)&&(navigator.userAgent.toLowerCase().indexOf("msie 7")<0)),
+    IE7			:(navigator.userAgent.toLowerCase().indexOf("msie 7")!=-1),
+		oldIE   :(navigator.userAgent.toLowerCase().indexOf("msie 6")!=-1)||(navigator.userAgent.toLowerCase().indexOf("msie 7")!=-1),
+    FF			:(navigator.userAgent.toLowerCase().indexOf("firefox")!=-1),
+    Opera:  !!window.opera,
+    WebKit: navigator.userAgent.indexOf("AppleWebKit/") > -1,
+    Gecko:  navigator.userAgent.indexOf("Gecko") > -1 && navigator.userAgent.indexOf("KHTML") == -1,
+    MobileSafari: !!navigator.userAgent.match(/Apple.*Mobile.*Safari/)
+}
+var util = {
+	$ : function(element) {
+		if (arguments.length > 1) {
+			for (var i = 0, elements = [], length = arguments.length; i < length; i++) elements.push(util.$(arguments[i]));
+			return elements;
+		}
+		if (typeof(element) == "string") element = document.getElementById(element);
+		return element;
+	},
+	AddEvent : function(obj, type, fn) { //Event Register
+		if(obj.addEventListener) {
+			obj.addEventListener(type, fn, false);
+		} else if(obj.attachEvent) {
+			obj["e"+type+fn] = fn;
+			obj[type+fn] = function() { obj["e"+type+fn]( window.event ); }
+			obj.attachEvent("on"+type, obj[type+fn]);
+			} else {
+			obj["on"+type] = obj["e"+type+fn];
+		}
+	},
+	setPng24 : function(obj){
+		if(!user.IE6) return;
+		obj.width=obj.height=1;
+		obj.className=obj.className.replace(/\bpng24\b/i,'');
+		obj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+ obj.src +"',sizingMethod='image');"
+		obj.src="";
+		return '';
+	},
+	popOpen : function(url,name,W,H,scroll,L,T){
+		W = (scroll) ? W+17 : W ;
+		L = L || (screen.width-W)/2;
+		T = T || (screen.height-H)/2;
+		scroll = (scroll) ? "yes" : "no" ;
+		window.open(url,name,"width="+W+",height="+H+",left="+L+",top="+T+",scrollbars="+scroll+",toolbar=no,location=no,status=no,menubar=no");
+	},
+	reflash : function(containerid, swfid, src, w, h, flashvars, base, wmode,bg){ // flash reWrite.
+		var wmode = wmode || "transparent";
+		var bg = bg || "none";
+		var base = base || "";
+		var flashvars = flashvars || "";
+		var html="";
+		if(user.IE){
+			html += "<object id=\""+swfid+"\" width=\""+w+"\" height=\""+h+"\" classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" codebase=\"http://download.macromedia.com/pub/shockwave/cabs/_flash/swflash.cab#version=9,0,0,0\">"
+					 + "<param name=\"base\" value=\""+base+"\" />"
+					 + "<param name=\"movie\" value=\""+src+"\" />"
+					 + "<param name=\"wmode\" value=\""+wmode+"\" />"
+					 + "<param name=\"bgcolor\" value=\""+bg+"\" />"
+					 + "<param name=\"flashvars\" value=\""+flashvars+"\"/>"
+					 + "<param name=\"allowScriptAccess\" value=\"sameDomain\" />"
+					 + "<param name=\"allowFullScreen\" value=\"true\" />"
+					 + "<param name=\"quality\" value=\"high\" />"
+					 + "</object>";
+		}else{
+			html += "<embed id=\""+ swfid+"\" src=\""+src+"\" flashvars=\""+flashvars+"\" width=\""+w+"\" height=\""+h+"\" quality=\"high\" base=\""+base+"\" wmode=\""+wmode+"\" bgcolor=\""+bg+"\" allowScriptAccess=\"sameDomain\" allowFullScreen=\"true\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\"></embed>";
+		}
+		util.$(containerid).innerHTML = html;
+	},
+	move : function(obj,dir,ms,me,pORm,percent,time,fun){ //( 오브젝트 , 이동property:style.left OR scrollLeft등 , 시작위치 , 이동할위치 , +(1)인지-(0)인지구별 )
+		clearTimeout(obj.moveact);
+		ms = parseFloat(ms);
+		me = parseFloat(me);
+		if(dir.indexOf("opacity")>-1){
+			if(!obj.style.opacity) obj.style.opacity = ms;
+			var _me = obj.style.opacity;
+			var _mm = (pORm) ? percent : -percent ;
+			var pos = parseFloat(_me)+parseFloat(_mm);
+			if((pORm==1&&_me>=me)||(pORm==0&&_me<=me)){
+				obj.style.opacity = me;
+				if(user.IE) obj.style.filter = "alpha(opacity="+(me*100)+")";
+				if(fun) eval(fun);
+			}else{
+				obj.style.opacity = pos;
+				if(user.IE) obj.style.filter = "alpha(opacity="+(pos*100)+")";
+				if((pORm==1&&_me<me)||(pORm==0&&_me>me)) obj.moveact=setTimeout(function(){util.move(obj,dir,eval("obj."+dir),me,pORm,percent,time,fun)},time);
+			}
+		}else{
+			var pos = Math.ceil((me-ms)*percent);
+			var unit = (dir.indexOf("style.")>-1) ? "px" : "";
+			if(unit=="px"&&!eval("obj."+dir)) eval("obj."+dir+" = ms+unit");
+			if(!eval("obj."+dir)) eval("obj."+dir+" = "+ms+unit);
+			if(pos==0) pos = (pORm) ? 1 : -1 ;
+			var _me = eval("parseInt(obj."+dir+")");
+			if((pORm==1&&_me>=me)||(pORm==0&&_me<=me)){
+				eval("obj."+dir+" = me+unit");
+				if(fun) eval(fun);
+			}else{
+				eval("obj."+dir+" = (parseInt(obj."+dir+")+pos)+unit");
+				if((pORm==1&&_me<me)||(pORm==0&&_me>me)) obj.moveact=setTimeout(function(){util.move(obj,dir,eval("obj."+dir),me,pORm,percent,time,fun)},time);
+			}
+		}
+	}
+}
+
+function startLogin() {
+	// loginform1.kpuinput01.focus();
+	var o = document.loginform1;
+	o.kpuinput01.focus();
+}
+
+function signLogin() {
+	// o = document.loginform1;
+	var o = document.loginform1;
+	
+	// if(o.kpuinput01.value == ""){
+	if(trim(o.kpuinput01.value) == "") {
+		alert("아이디를 입력하십시오");
+		o.kpuinput01.focus();
+		// return;
+		return false;
+	}
+	
+	// if(o.kpuinput02.value == ""){
+	if(trim(o.kpuinput02.value) == "") {
+		alert("패스워드를 입력하십시오");
+		o.kpuinput02.focus();
+		// return;
+		return false;
+	}
+	
+	o.sign_id.value = o.kpuinput01.value;
+	o.sign_pass.value = o.kpuinput02.value;
+	o.action = "/epki.do";
+	o.submit();
+}
+
+function signLogin1() {
+	// o = document.loginform1;
+	var o = document.loginform1;
+	
+	// if(o.kpuinput01.value == ""){
+	if(trim(o.kpuinput01.value) == "") {
+		alert("아이디를 입력하십시오");
+		o.kpuinput01.focus();
+		// return;
+		return false;
+	}
+	
+	// if(o.kpuinput02.value == "") {
+	if(trim(o.kpuinput02.value) == "") {
+		alert("패스워드를 입력하십시오");
+		o.kpuinput02.focus();
+		// return;
+		return false;
+	}
+	
+	o.sign_id.value = o.kpuinput01.value;
+	o.sign_pass.value = o.kpuinput02.value;
+	o.action = "/epkilogin.do";
+	o.submit();
+}
+
+function loginCheck() {
+	// o = document.loginform1;
+	var o = document.loginform1;
+	
+	// if(o.kpuinput01.value == ""){
+	if(trim(o.kpuinput01.value) == "") {
+		alert("아이디를 입력하십시오");
+		o.kpuinput01.focus();
+		// return;
+		return false;
+	}
+	
+	// if(o.kpuinput02.value == "") {
+	if(trim(o.kpuinput02.value) == "") {
+		alert("패스워드를 입력하십시오");
+		o.kpuinput02.focus();
+		// return;
+		return false; 
+	}
+	
+	//o.action = "http://sso.kpu.ac.kr/sso/sso/pmi-sso-kpulogin-uid-kpupassword.jsp";
+	o.action = "https://sso.kpu.ac.kr/sso/sso/pmi-sso-kpulogin-uid-kpupassword.jsp";
+	o.submit();
+}
+
+function loginCheckNEW() {
+	var o = document.loginform1;
+	if(trim(o.loginName.value) == "") {
+		alert("아이디를 입력하십시오");
+		o.loginName.focus();
+		return false;
+	}
+	if(trim(o.password.value) == "") {
+		alert("패스워드를 입력하십시오");
+		o.password.focus();
+		return false; 
+	}
+	o.action = "loginpageprocess.do";
+	o.submit();
+}
+
+
+function emoticon(type,name,obj){
+	switch(type){
+		case 0 : document.getElementById(name).style.display = 'none'; break;
+		case 1 : document.getElementById(name).style.display = 'block'; break;
+		case 2 :
+			document.getElementById(name).src = obj.src;
+			obj.parentNode.style.display = 'none';
+		break;
+	}
+}
+function familyOpen(){
+	var obj = util.$("familyRelated");
+	obj.className = (obj.className=="close") ? "open" : "close";
+	obj.style.height = obj.offsetHeight+"px";
+	if(obj.className=="close") util.move(obj,"style.height",obj.style.height,13,0,0.2,20)
+	else util.move(obj,"style.height",obj.style.height,obj.scrollHeight,1,0.2,20)
+}
+
+var mainNavi = {
+	obj : null, item : [], cur : null , min : -37, max : 0, overOld : null, curAct : null,
+	init : function(){
+		mainNavi.obj = util.$("mainMenu");
+		for(i=0;i<mainNavi.obj.childNodes.length;i++){
+			if(mainNavi.obj.childNodes[i].nodeType==1){
+				mainNavi.item.push(mainNavi.obj.childNodes[i]);
+				mainNavi.obj.childNodes[i].ul = (mainNavi.obj.childNodes[i].getElementsByTagName("ul").length>0) ? mainNavi.obj.childNodes[i].getElementsByTagName("ul")[0] : null;
+				mainNavi.obj.childNodes[i].img = mainNavi.obj.childNodes[i].getElementsByTagName("img")[0];
+				mainNavi.obj.childNodes[i].img.style.marginTop = 0;
+				if(mainNavi.obj.childNodes[i].ul!=null){
+					mainNavi.obj.childNodes[i].ul.style.opacity = 0;
+					if(user.IE) mainNavi.obj.childNodes[i].ul.style.filter = "alpha(opacity=0)";
+					mainNavi.obj.childNodes[i].ul.style.display = "none";
+					mainNavi.obj.childNodes[i].ul.style.zIndex = 1;
+				}
+				if(mainNavi.obj.childNodes[i].className=="this") mainNavi.cur = mainNavi.obj.childNodes[i];
+				mainNavi.obj.childNodes[i].onmouseover = function(){ mainNavi.menuOn(this); }
+			}
+		}
+		mainNavi.obj.onmouseout = function(){ mainNavi.curAct = setTimeout(function(){mainNavi.curOn(mainNavi.cur)},2000); }
+		if(mainNavi.cur!=null){ mainNavi.menuOn(mainNavi.cur); }
+	},
+	menuOn : function(obj){
+		clearTimeout(mainNavi.curAct);
+		if(mainNavi.overOld!=null&&mainNavi.overOld!=obj) mainNavi.menuOut(mainNavi.overOld);
+		util.move(obj.img,"style.marginTop",obj.img.style.marginTop,mainNavi.min,0,0.2,20);
+		if(obj.ul!=null){
+			obj.ul.style.display = "block";
+			obj.ul.style.zIndex = 100;
+			util.move(obj.ul,"style.opacity",obj.ul.style.opacity,1,1,0.1,40);
+		}
+		mainNavi.overOld = obj;
+	},
+	menuOut : function(obj){
+		util.move(obj.img,"style.marginTop",obj.img.style.marginTop,0,1,0.2,20)
+		if(obj.ul!=null){
+			obj.ul.style.zIndex = 1;
+			util.move(obj.ul,"style.opacity",obj.ul.style.opacity,0,0,0.1,40);
+		}
+	},
+	curOn : function(obj){
+		if(mainNavi.cur!=null){ mainNavi.menuOn(mainNavi.cur);
+		}else if(mainNavi.overOld!=null){ mainNavi.menuOut(mainNavi.overOld); }
+	}
+}
+
+/*
+function sboardChange(){
+	var  url = document.sboardform.sboard.value;
+	open_window(url, "sboard", "100", "100", "800", "600", "yes", "yes", "yes", "auto", "yes"); 
+}
+*/
+function sboardChange(sname) {
+	var url = $("#"+sname).val();	// document.getElementByName(sname).value;
+	open_window(url, "win", "100", "100", "800", "600", "yes", "yes", "yes", "auto", "yes");
+}
+
+function setComma(str){
+        var retValue = "";
+        for(i=0; i<str.length; i++)
+        {
+                if(i > 0 && (i%3)==0) {
+                        retValue = str.charAt(str.length - i -1) + "," + retValue;
+                 } else {
+                        retValue = str.charAt(str.length - i -1) + retValue;
+                }
+        }
+        return retValue;
+}
+
+// 트위터 공유하기
+function sendBoardViewToTwitter() {
+	var o = document.twitterForm;
+	o.action = "http://twitter.com/home?";
+	o.target = "_blank";
+	o.submit();
+}
+
+// 페이스북 공유하기
+function sendBoardViewToFacebook() {
+	var o = document.facebookForm;
+	o.action = "http://www.facebook.com/sharer.php?";
+	o.target = "_blank";
+	o.submit();
+}

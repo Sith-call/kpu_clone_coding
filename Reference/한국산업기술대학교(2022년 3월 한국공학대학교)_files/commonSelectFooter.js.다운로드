@@ -1,0 +1,55 @@
+//공통으로 관리하는 푸터 관련사이트 바로가기(추가.2017.02.01)
+function commonFooterMoveFamily(chkMain) {
+	var footerSelect = "";
+	
+	footerSelect = footerSelect + ('<label for="familySitesSelBox" class="blind">관련사이트바로가기</label>');
+	footerSelect = footerSelect + ('<select id="familySitesSelBox" name=\"select\" onchange=\"if(this.value) moveFamily(this.value);\">');
+	footerSelect = footerSelect + ('	<option>관련사이트바로가기</option>');
+	if(!chkMain){
+		footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/\">::한국산업기술대학교</option>');
+	}
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/grad/index.do\">::일반대학원</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/polygradua_new/index.do\">::산업기술경영대학원</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/energygrad_new/index.do\">::지식기반기술에너지대학원</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://sanhak.kpu.ac.kr\">::산학협력단</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://tip.kpu.ac.kr\">::기술혁신파크(TIP)</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://tip.kpu.ac.kr\">::생활관</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/service_2016/index.do\">::학생서비스</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/counseling/index.do\">::학생상담센터</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/job/index.do\">::대학일자리플러스센터</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/global/index.do\">::국제교류</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://news.kpu.ac.kr\">::학보사</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/abeek_2016/index.do\">::공학교육혁신센터</option>');
+//	footerSelect = footerSelect + ('	<option value=\"http://abeek.kpu.ac.kr/login.jsp\">::공학인증시스템</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://dual.kpu.ac.kr\">::일학습병행사업단</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/ctl/index.do\">::교수학습개발센터</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/itp_2016/index.do\">::산업기술최고경영교육원(ITP)</option>');
+	//footerSelect = footerSelect + ('	<option value=\"http://www.kpubic.or.kr/\">::창업보육센터</option>'); 
+	footerSelect = footerSelect + ('	<option value=\"http://startup.kpu.ac.kr/\">::창업지원본부</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://arts.kpu.ac.kr/\">::KPU아트센터</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://family.kpu.ac.kr/\">::가족회사종합지원센터</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://library.kpu.ac.kr\">::도서관</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/language_2016/index.do\">::커뮤니케이션교육센터</option>');
+//	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/contents/main/cor/lifelong.html\">::평생교육원</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://lifelong.kpu.ac.kr/\">::평생교육원</option>');
+	//footerSelect = footerSelect + ('	<option value=\"http://lifelong.kpu.ac.kr/\">::평생교육원</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://iec.kpu.ac.kr/web/index.php\">::국제교육센터</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://pg.kpu.ac.kr\">::교원인사</option>');
+	footerSelect = footerSelect + ('	<option value=\"http://www.kpu.ac.kr/larc/index.do\">::교양교육운영센터</option>');
+	footerSelect = footerSelect + ('</select>'); 
+	
+	return footerSelect;
+}
+
+
+function privacyPolicy(){ //개인정보처리방침
+	window.open('http://ibook.kpu.ac.kr/Viewer/OZKGMW4FRY2L', '_blank');
+}
+
+function infoSecurityPractice(){ //정보보호실천수칙
+	window.open('http://www.kpu.ac.kr/gopage/main/gonomalnotice.jsp?siteGubun=1&bbsConfigFK=357&pkid=61538&menuGubun=1', '_blank');
+}
+function privacyPolicyBoard(){ //개인정보 목적외 이용·제공대장
+	window.open('http://www.kpu.ac.kr/front/boardlist.do?bbsConfigFK=575&amp;siteGubun=14&amp;menuGubun=1', 'new','width=800,height=600,top=100,left=100');
+//window.open('http://www.kpu.ac.kr/front/boardlist.do?bbsConfigFK=570&amp;siteGubun=14&amp;menuGubun=1', '_blank');
+}

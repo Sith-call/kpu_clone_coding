@@ -1,0 +1,305 @@
+var max_iphak_notice = 4;
+
+$(document).ready(function(){
+	setSlide();
+	setEnb();
+});
+
+function setSlide() {
+	$(".cui.slide", ".page.index .i111").each(function() {
+		var $cui = $(this);
+		var $control = $(".control", $cui);
+		var $unit = $(".unit", $cui);
+		var length = $unit.length;
+		var current = 0;
+		var index = 0;
+		var direction = 1;
+		var duration = 400;
+		var interval = 30000;
+		var opacity = 0.2;
+		var status = false;
+		var $indicator, $navigator, $align, $led, $arrow;
+		var zindex;
+		var auto = function() {
+			return $cui.hasClass("auto");
+		};
+		
+		function get() {
+			index = (current + length + direction) % length;
+		};
+		function init() {
+			$indicator = $("<div class=\"indicator\"></div>").appendTo($control);;
+			$align = $("<div class=\"align\"></div>").appendTo($indicator);;
+			for (var i = 0; i < length; i++) {
+				zindex = length - i;
+				$unit.eq(i).css({"z-index": zindex});
+				var o = $("<span class=\"led\"></span>").appendTo($align);
+			}
+			$navigator = $("<div class=\"navigator\"></div>").appendTo($control);;
+			$align = $("<div class=\"align\"></div>").appendTo($navigator);;
+			o = $("<a href=\"#\" class=\"arrow backward\" title=\"이전메인배너\"><span class=\"blind\">이전메인배너</span></a>").appendTo($align);
+			o = $("<a href=\"#\" class=\"arrow forward\" title=\"다음메인배너\"><span class=\"blind\">다음메인배너</span></a>").appendTo($align);
+			$led = $(".led", $indicator);
+			$arrow = $(".arrow", $navigator);
+			sync(current);
+			
+		}
+		function set() {
+			$cui.on("click", ".led", function(e) {
+				e.preventDefault();
+				index = $led.index($(this));
+				if (current == index) return false;
+				if (status) return false;
+				run();
+			});
+			$cui.on("click", ".arrow", function(e) {
+				e.preventDefault();
+				direction = ($(this).hasClass("backward")) ? -1 : +1;
+				get();
+				if (current == index) return false;
+				if (status) return false;
+				run();
+			});
+			$cui.hover(function() {
+				pause();
+			}, function() {
+				repeat();
+			});
+		}
+		function sync() {
+			$led.removeClass("current");
+			for (var j = 0; j < $led.length; j++) {
+				if (j == index) {
+					$led.eq(j).addClass("current");
+				}
+			}
+		}
+		function run() {
+			$out = $unit.eq(current);
+			$in = $unit.eq(index);
+			$in.css({
+				"opacity": 1,
+				"z-index": 11
+			});
+			$out.css({
+				"opacity": 1,
+				"z-index": 12
+			});
+			$out.animate({
+				opacity: 0
+			}, {
+				duration: duration,
+				queue: false,
+				start: function() {
+					status = true;
+					sync(index);
+				},
+				complete: function() {
+					$in.css({
+						"z-index": 12
+					});
+					$out.css({
+						"z-index": 11
+					});
+					status = false;
+					current = index;
+				}
+			});
+		};
+		function pause() {
+			clearInterval(play);
+		};
+		function repeat() {
+			play = setInterval(function() {
+				get();
+				run();
+			}, interval + duration);
+		};
+		function toggle() {
+			$cui.toggleClass("auto");
+		};
+		init();
+		set();
+		if (auto) repeat();
+	});
+};
+
+function setEnb() {
+	$(".cui.enb").each(function() {
+		var $cui = $(this);
+		var $expand = $(".expand", $cui);
+		var $pane = $(".pane", $cui);
+		var $pane_subno = $(".pane_subno", $cui);
+		var $carousel = $(".carousel", $cui);
+		var $pane_iphak = $(".pane_iphak", $cui);
+		var $carousel_iphak = $(".carousel_iphak", $cui);
+		
+		var opacity = 1;
+		var height = $pane.height();
+		var height_iphak = $pane_iphak.height();
+		var duration = 150;
+		var visibleNum = 9 - max_iphak_notice;
+		var visibleIphakNum = max_iphak_notice;
+		
+		function Nav() {
+			this.opacity = opacity;
+			this.height = height;
+			this.status = status;
+		};
+		function init() {
+			var iphakNum = max_iphak_notice;
+			if(typeof(subNoticeNum) !== 'undefined'){
+				if(subNoticeNum < 9 - max_iphak_notice){
+					visibleNum = subNoticeNum;
+				}else{
+					if(subNoticeIphakNum > max_iphak_notice){
+						iphakNum = max_iphak_notice;
+						visibleNum = 9 - max_iphak_notice;
+					}else{
+						iphakNum = subNoticeIphakNum;
+						visibleNum = 9 - subNoticeIphakNum;
+					}
+				}
+				if(visibleNum > 8){
+					visibleNum = 8;
+				}
+			}
+			
+			if(typeof(subNoticeIphakNum) !== 'undefined'){
+				if(subNoticeIphakNum < max_iphak_notice){
+					visibleIphakNum = subNoticeIphakNum;
+				}
+			}
+			
+			$expand.css({
+				"opacity": getOpacity(getStatus())
+			});
+			$pane.css({
+				"left": 0,
+				"height": getHeight(getStatus())
+			});
+			$pane_subno.css({
+				"left": 0,
+				"top" : (88 + iphakNum*78),
+				"height": (80 + visibleNum*78)
+			});
+			$carousel.css({
+				"height": (6 + visibleNum*78)
+			});
+			$pane_iphak.css({
+				"left": 0,
+				"height": (82 + visibleIphakNum*78)
+			});
+			$carousel_iphak.css({
+				"height": (6 + visibleIphakNum*78)
+			});
+		}; 
+		function getStatus() {
+			if ($cui.hasClass("expanded")) return 1;
+			else return 0;
+		};
+		function getHeight(i) {
+			switch (i) {
+				case 1:
+					return height;
+					break;
+				default :
+					return 0;
+					break;
+			}
+		};
+		function getOpacity(i) {
+			switch (i) {
+				case 1:
+					return 0;
+					break;
+				default :
+					return opacity;
+					break;
+			}
+		};
+		function set() {
+			$cui.on("click", ".switch", function(e) {
+				e.preventDefault();
+				toggle();
+			});
+			$(".cui.carousel", ".xnb").each(function() {
+				var $cui = $(this);
+				function init() {
+					$cui.jCarouselLite({
+						circular: false,
+						mouseWheel: true,
+						vertical: true,
+						visible: visibleNum,
+						btnPrev: ".xnb-nav_subno.prev",
+						btnNext: ".xnb-nav_subno.next"
+					});
+				};
+				init();
+			});
+			$(".cui.carousel_iphak", ".xnb").each(function() {
+				var $cui = $(this);
+				function init() {
+					$cui.jCarouselLite({
+						circular: false,
+						mouseWheel: true,
+						vertical: true,
+						visible: visibleIphakNum,
+						btnPrev: ".xnb-nav_iphak.prev",
+						btnNext: ".xnb-nav_iphak.next"
+					});
+				};
+				init();
+			});
+		};
+		function toggle() {
+			$cui.toggleClass("expanded");
+			setPane();
+		};
+		function setPane() {
+			console.log(1 + " " + getStatus());
+			$expand.animate({
+				opacity: getOpacity(getStatus())
+			}, {
+				duration: duration,
+				queue: false,
+				start: function() {
+				},
+				complete: function() {
+				}
+			});
+			console.log(2);
+			$pane.animate({
+				height: getHeight(getStatus())
+			}, {
+				duration: duration,
+				queue: false,
+				start: function() {
+				},
+				complete: function() {
+				}
+			});
+			console.log(3);
+		};
+		init();
+		set();
+	});
+};
+
+function goDream(){
+//	var url =  "https://dream.kpu.ac.kr/nx/index_umgjEx.html?";
+	var url =  "http://dev.kpu.ac.kr:8080/nx/index_umgjEx.html?";
+	//var baseUrl = "https://iis.kpu.ac.kr/com/SsoCtr/initPageWork.do?loginGbn=ptl&param=";
+
+    var params = {
+        pgmPath : "uni/nsbt/mngt",
+        pgmFileNm : "mngt0010_mur0310",
+        persNo : "",
+		stdKorNm : ""
+    };
+
+    var queryStr = encode64("menuId=MUR0310&loginGbn=1&showTitle=false&params=" + encodeURIComponent(JSON.stringify(params)));
+	url = url + queryStr;
+	window.open(url, "_blank");
+
+}

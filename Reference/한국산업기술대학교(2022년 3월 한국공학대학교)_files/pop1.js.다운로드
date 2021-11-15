@@ -1,0 +1,490 @@
+function open_pop1172(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1172" class="layer_pop" style="position:absolute;z-index:1172;border:2px solid #1C6DC7;width:600px;height:420px;left:100px;top:500px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1172").draggable(); '); 
+		document.write('  $("#layer1172").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1172").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1172(){layer1172.style.display="none";}	 	'); 
+		document.write('  	function closeWin1172(){layer1172.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1172", "done" , 1)}		'); 
+		document.write('  	function close7Win1172(){layer1172.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1172", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">2021학년도 대학원 후기 신·편입생 모집 안내</div>'); 
+		document.write('			<div class="btn_close" onclick="close1172();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<div class="cont"><div style="text-align: center; line-height: 1.5;"><div class="cont" style=""><div style="color: rgb(85, 85, 85); text-align: center; line-height: 1.5; font-size: 16px;"><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; text-align: center; line-height: 21.3333px; font-size: 10pt; font-family: 함초롬바탕; color: rgb(0, 0, 0);"><span style="margin: 0px; padding: 0px; position: relative; font-size: 17pt; font-weight: bold; line-height: 36.6667px;">2021학년도 대학원 후기 신·편입생 모집 안내</span></p></div><div style="text-align: center; line-height: 1.5;"><p class="HStyle0" style="color: rgb(0, 0, 0); font-size: 10pt; margin-top: 0pt; margin-bottom: 0pt; text-align: center; line-height: 21.3333px; font-family: 함초롬바탕;"><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 11pt;">- 첫학기 연구지원장학금 전액지급 / 다양한 인재양성프로그램(8개)&nbsp;-</span></p><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; text-align: center; line-height: 21.3333px;"><span style="color: rgb(0, 0, 0); font-family: Dotum, 돋움, sans-serif; font-size: 11pt; margin: 0px; padding: 0px; position: relative;">-&nbsp;</span><font color="#000000" face="Dotum, 돋움, sans-serif"><span style="font-size: 14.6667px;">2019년 일반대학원 취업률 97.4%</span></font><span style="font-size: 14.6667px; color: rgb(0, 0, 0); font-family: Dotum, 돋움, sans-serif;">(대학정보공시 기준) -</span></p><p class="HStyle0" style="color: rgb(0, 0, 0); font-size: 10pt; margin-top: 0pt; margin-bottom: 0pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"><span style="margin: 0px; padding: 0px; position: relative;"><br></span></p><p class="HStyle0" style="color: rgb(0, 0, 0); font-size: 10pt; margin-top: 0pt; margin-bottom: 0pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"><b><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">▶ </span><span style="margin: 0px; padding: 0px; position: relative; color: rgb(0, 89, 255); font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">원서접수기간&nbsp;</span></b><b style="font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">2021.05.31.(월) ~ 06.25(금)</b></p><span style="color: rgb(85, 85, 85); font-size: 5pt;"><b></b></span><p class="HStyle0" style="color: rgb(0, 0, 0); font-size: 10pt; margin-top: 0pt; margin-bottom: 0pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"><b><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">▶ </span><span style="margin: 0px; padding: 0px; position: relative; color: rgb(0, 89, 255); font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">면접전형일시</span><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;"> 2021.06.30.(수) 예정</span></b></p><span style="color: rgb(85, 85, 85); font-size: 12pt;"><b></b></span><p class="HStyle0" style="color: rgb(0, 0, 0); font-size: 10pt; margin-top: 0pt; margin-bottom: 0pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"></p><div id="hwpEditorBoardContent" data-hjsonver="1.0" data-jsonlen="7425" style="color: rgb(85, 85, 85); font-size: medium; margin: 0px; padding: 0px; text-align: left;"></div><p style="color: rgb(85, 85, 85); font-size: 16px; text-align: left;"></p><span style="color: rgb(85, 85, 85); font-size: 12pt;"><b></b></span><p class="HStyle0" style="color: rgb(0, 0, 0); font-size: 10pt; margin: 0pt 0px; padding: 0px; text-align: left; text-indent: 0px; line-height: 21.3333px; font-family: 함초롬바탕; letter-spacing: normal; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><b><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">▶ </span><span style="margin: 0px; padding: 0px; position: relative; color: rgb(0, 89, 255); font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">합격자 발표</span><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;"> 2021.07.07.(수)</span></b></p><div id="hwpEditorBoardContent" data-hjsonver="1.0" data-jsonlen="5541" style="color: rgb(0, 0, 0); font-size: medium; margin: 0px; padding: 0px; text-align: start;"></div></div><div style="color: rgb(85, 85, 85); text-align: center; font-size: 16px; margin-top: 20px;"><a href="/gopage/grad/gonotice.jsp?siteGubun=14&bbsConfigFK=418&pkid=91329&menuGubun=1" target="_blank" style="color: white; border: 2px solid rgb(204, 204, 204); background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; line-height: 30px; display: inline-block; cursor: pointer;"><span style="font-size: 12pt;">입학정보 바로가기</span></a>&nbsp;</div><div style="color: rgb(85, 85, 85); text-align: center; font-size: 16px; margin-top: 20px;"><a href="/contents/grad/cor/encourage.html" target="_blank" style="color: white; border: 2px solid rgb(204, 204, 204); background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; line-height: 30px; display: inline-block; cursor: pointer;"><span style="font-size: 12pt;">장학 및 인재양성프로그램 바로가기</span></a><br></div></div></div></div><p><br></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1172() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1172() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1172();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+function open_pop1165(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1165" class="layer_pop" style="position:absolute;z-index:1165;border:2px solid #1C6DC7;width:650px;height:530px;left:100px;top:400px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1165").draggable(); '); 
+		document.write('  $("#layer1165").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1165").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1165(){layer1165.style.display="none";}	 	'); 
+		document.write('  	function closeWin1165(){layer1165.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1165", "done" , 1)}		'); 
+		document.write('  	function close7Win1165(){layer1165.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1165", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">2021학년도 신입생 기초교과 진단평가 추가 응시 안내</div>'); 
+		document.write('			<div class="btn_close" onclick="close1165();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<p style="text-align: center;"><b><span style="font-size: 14pt;">2021학년도&nbsp;신입생 기초교과&nbsp;진단평가 추가 응시 안내</span></b></p><p style="text-align: center;"><b><span style="font-size: 14pt;"><br></span></b></p><p class="0"><span lang="EN-US" style="mso-fareast-font-family:굴림;font-size:12.0pt;"> </span><span style="letter-spacing: 0pt; font-size: 12pt;">■ </span><span style="font-size: 12pt;">대상 </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 12pt;">: </span><u><span lang="EN-US" style="mso-fareast-font-family:돋움;font-family:돋움;mso-ascii-font-family:돋움;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;color:#0000ff;">2021</span></u><u><span style="font-family:돋움;mso-fareast-font-family:돋움;font-weight:bold;font-size:12.0pt;color:#0000ff;">학년도 신입생 추가 합격자 및 </span></u><u><span lang="EN-US" style="mso-fareast-font-family:돋움;font-family:돋움;mso-ascii-font-family:돋움;mso-font-width:100%;letter-spacing:0pt;mso-text-raise:0pt;font-weight:bold;font-size:12.0pt;color:#0000ff;">1</span></u><u><span style="font-family:돋움;mso-fareast-font-family:돋움;font-weight:bold;font-size:12.0pt;color:#0000ff;">차 시험 미응시자</span></u></p><p class="0"></p><table style="border-collapse:collapse;table-layout:fixed;border-top:none;border-left:none;border-bottom:none;border-right:none;margin-left:6.97ptmso-table-overlap:never;"><tbody><tr><td style="width:152.12pt;height:20.48pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 1.70pt;border-left:solid #000000 1.70pt;border-bottom:double #000000 1.98pt;border-right:solid #000000 0.28pt;background:#e3dcc1;" valign="middle"><p class="0" style="text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span style="font-size: 11pt;">일정</span></p></td><td style="width:321.92pt;height:20.48pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 1.70pt;border-left:solid #000000 0.28pt;border-bottom:double #000000 1.98pt;border-right:solid #000000 1.70pt;background:#e3dcc1;" valign="middle"><p class="0" style="text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span style="font-size: 11pt;">내용</span></p></td></tr><tr><td style="width:152.12pt;height:110.44pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 0.28pt;border-left:solid #000000 1.70pt;border-bottom:solid #000000 1.70pt;border-right:solid #000000 0.28pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-weight: bold; font-size: 11pt; color: rgb(255, 0, 0);">2.26(</span><span style="font-weight: bold; font-size: 11pt; color: rgb(255, 0, 0);">금</span><span lang="EN-US" style="letter-spacing: 0pt; font-weight: bold; font-size: 11pt; color: rgb(255, 0, 0);">)</span></p><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-weight: bold; font-size: 11pt; color: rgb(255, 0, 0);">10:00 ~ 18:00</span><span style="font-weight: bold; font-size: 11pt; color: rgb(255, 0, 0);">까지 </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">“</span><span style="font-size: 11pt;">응시하기</span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">” </span><span style="font-size: 11pt;">버튼 클릭 가능</span></p><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;font-size:11.0pt;"><span style="mso-fareast-font-family:굴림;font-size:11.0pt;">  &nbsp;  <o:p></o:p></span></p><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span style="letter-spacing: 0pt; font-size: 11pt;">※</span><span style="font-size: 11pt;">지정시간 이후 응시불가</span></p></td><td style="width:321.92pt;height:110.44pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 0.28pt;border-left:solid #000000 0.28pt;border-bottom:solid #000000 1.70pt;border-right:solid #000000 1.70pt;" valign="middle"><p class="0" style="line-height:130%;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span style="letter-spacing: 0pt; font-size: 11pt;">&#9702; </span><span style="font-size: 11pt;">진단평가</span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">(</span><span style="font-size: 11pt;">온라인</span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">) </span><span style="font-size: 11pt;">실시</span></p><p class="0" style="line-height:130%;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;font-size:11.0pt;"></p><table style="border-collapse:collapse;table-layout:fixed;border-top:none;border-left:none;border-bottom:none;border-right:none;mso-table-overlap:never;"><tbody><tr><td style="width:66.98pt;height:14.82pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 1.70pt;border-left:solid #000000 1.70pt;border-bottom:double #000000 1.98pt;border-right:solid #000000 0.28pt;background:#e0e5fa;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">구분</p></td><td style="width:131.12pt;height:14.82pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 1.70pt;border-left:solid #000000 0.28pt;border-bottom:double #000000 1.98pt;border-right:solid #000000 0.28pt;background:#e0e5fa;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">대상학과<span lang="EN-US" style="letter-spacing: 0pt;">(</span>부<span lang="EN-US" style="letter-spacing: 0pt;">)</span></p></td><td style="width:103.76pt;height:14.82pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 1.70pt;border-left:solid #000000 0.28pt;border-bottom:double #000000 1.98pt;border-right:solid #000000 1.70pt;background:#e0e5fa;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">평가 과목</p></td></tr><tr><td style="width:66.98pt;height:46.02pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:double #000000 1.98pt;border-left:solid #000000 1.70pt;border-bottom:solid #000000 0.28pt;border-right:solid #000000 0.28pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">공학계열</p></td><td style="width:131.12pt;height:46.02pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:double #000000 1.98pt;border-left:solid #000000 0.28pt;border-bottom:solid #000000 0.28pt;border-right:solid #000000 0.28pt;" valign="middle"><p class="0" style="line-height:130%;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span style="letter-spacing: -0.5pt;">기계</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">기설</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">메카</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">신소재</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">생명</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">전자</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">컴퓨터</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">게임</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">나노</span><span lang="EN-US" style="letter-spacing: -0.5pt;">, </span><span style="letter-spacing: -0.5pt;">에전</span></p></td><td style="width:103.76pt;height:46.02pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:double #000000 1.98pt;border-left:solid #000000 0.28pt;border-bottom:solid #000000 0.28pt;border-right:solid #000000 1.70pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">영어<span lang="EN-US" style="letter-spacing: 0pt;">(40</span>문항<span lang="EN-US" style="letter-spacing: 0pt;">/50</span>분<span lang="EN-US" style="letter-spacing: 0pt;">)</span></p><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">수학<span lang="EN-US" style="letter-spacing: 0pt;">(20</span>문항<span lang="EN-US" style="letter-spacing: 0pt;">/30</span>분<span lang="EN-US" style="letter-spacing: 0pt;">)</span></p><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">물리<span lang="EN-US" style="letter-spacing: 0pt;">(20</span>문항<span lang="EN-US" style="letter-spacing: 0pt;">/30</span>분<span lang="EN-US" style="letter-spacing: 0pt;">)</span></p></td></tr><tr><td style="width:66.98pt;height:14.82pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 0.28pt;border-left:solid #000000 1.70pt;border-bottom:solid #000000 0.28pt;border-right:solid #000000 0.28pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">상경계열</p></td><td style="width:131.12pt;height:14.82pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 0.28pt;border-left:solid #000000 0.28pt;border-bottom:solid #000000 0.28pt;border-right:solid #000000 0.28pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">경영</p></td><td rowspan="2" style="width:103.76pt;height:29.64pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 0.28pt;border-left:solid #000000 0.28pt;border-bottom:solid #000000 1.70pt;border-right:solid #000000 1.70pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">영어<span lang="EN-US" style="letter-spacing: 0pt;">(40</span>문항<span lang="EN-US" style="letter-spacing: 0pt;">/50</span>분<span lang="EN-US" style="letter-spacing: 0pt;">)</span></p></td></tr><tr><td style="width:66.98pt;height:14.82pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 0.28pt;border-left:solid #000000 1.70pt;border-bottom:solid #000000 1.70pt;border-right:solid #000000 0.28pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">디자인계열</p></td><td style="width:131.12pt;height:14.82pt;padding:1.41pt 5.10pt 1.41pt 5.10pt;border-top:solid #000000 0.28pt;border-left:solid #000000 0.28pt;border-bottom:solid #000000 1.70pt;border-right:solid #000000 0.28pt;" valign="middle"><p class="0" style="line-height:130%;text-align:center;word-break:keep-all;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;">디자인</p></td></tr></tbody></table><p></p></td></tr></tbody></table><p></p><p class="0"><span style="letter-spacing: 0pt; font-size: 11pt;">&#8728; </span><span style="font-size: 11pt;">응시 홈페이지 바로가기 링크 </span><a href="http://www.testasp.co.kr/kpu" style="font-size: 10pt;"><u><span lang="EN-US" style="letter-spacing: -0.5pt; font-weight: bold; font-size: 12pt; color: rgb(128, 0, 128);">http://www.testasp.co.kr/kpu</span></u></a><br></p><p class="0" style="line-height:130%;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span lang="EN-US" style="mso-fareast-font-family:굴림;font-size:11.0pt;"> </span><span style="letter-spacing: 0pt; font-size: 11pt;">&#8728; </span><span style="font-size: 11pt;">시험장애 문의 </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">: </span><span style="font-size: 11pt;">이테스트 </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">02-2292-9993, 070-4124-9327</span></p><p class="0" style="line-height:130%;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span lang="EN-US" style="mso-fareast-font-family:굴림;font-size:11.0pt;">                       </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt; color: rgb(255, 0, 0);">(*</span><span style="font-size: 11pt; color: rgb(255, 0, 0);">문의가능시간 평일 </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt; color: rgb(255, 0, 0);">09:00~18:00)</span></p><p class="0" style="line-height:130%;mso-pagination:none;text-autospace:none;mso-padding-alt:0pt 0pt 0pt 0pt;"><span lang="EN-US" style="mso-fareast-font-family:굴림;font-size:11.0pt;"> </span><span style="letter-spacing: 0pt; font-size: 11pt;">&#8728; </span><span style="font-size: 11pt;">진단평가 문의 </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">: </span><span style="font-size: 11pt;">교양교육운영센터 </span><span lang="EN-US" style="letter-spacing: 0pt; font-size: 11pt;">031-8041-0184~0185</span></p><p style="text-align: center;"><a style="background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; border: 2px solid rgb(204, 204, 204); border-image: none; color: white; line-height: 30px; display: inline-block; cursor: pointer; webkit-border-radius: 15px;" href="http://www.testasp.co.kr/kpu" target="_blank">응시 바로가기</a><br></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1165() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1165() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1165();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+function open_pop1173(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1173" class="layer_pop" style="position:absolute;z-index:1173;border:2px solid #1C6DC7;width:600px;height:420px;left:100px;top:100px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1173").draggable(); '); 
+		document.write('  $("#layer1173").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1173").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1173(){layer1173.style.display="none";}	 	'); 
+		document.write('  	function closeWin1173(){layer1173.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1173", "done" , 1)}		'); 
+		document.write('  	function close7Win1173(){layer1173.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1173", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">2021학년도 대학원 후기 신·편입생 모집 안내</div>'); 
+		document.write('			<div class="btn_close" onclick="close1173();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<div class="cont"><div style="text-align: center; line-height: 1.5;"><div class="cont"><div style="color: rgb(85, 85, 85); line-height: 1.5; font-size: 16px;"><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; line-height: 21.3333px; font-size: 10pt; font-family: 함초롬바탕; color: rgb(0, 0, 0); text-align: center;"><span style="margin: 0px; padding: 0px; position: relative; font-size: 17pt; font-weight: bold; line-height: 36.6667px;">2021학년도 대학원 후기 신·편입생 모집 안내</span></p></div><div style="line-height: 1.5; text-align: center;"><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; line-height: 21.3333px; font-family: 함초롬바탕; text-align: center;"><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 11pt;">- 첫학기 연구지원장학금 전액지급 / 다양한 인재양성프로그램(8개)&nbsp;-</span></p><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; line-height: 21.3333px; text-align: center;"><span style="color: rgb(0, 0, 0); font-family: Dotum, 돋움, sans-serif; font-size: 11pt; margin: 0px; padding: 0px; position: relative;">-&nbsp;</span><font color="#000000" face="Dotum, 돋움, sans-serif"><span style="font-size: 14.6667px;">2019년 일반대학원 취업률 97.4%</span></font><span style="font-size: 14.6667px; color: rgb(0, 0, 0); font-family: Dotum, 돋움, sans-serif;">(대학정보공시 기준) -</span></p><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"><span style="margin: 0px; padding: 0px; position: relative;"><br></span></p><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"><b><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">▶&nbsp;</span><span style="margin: 0px; padding: 0px; position: relative; color: rgb(0, 89, 255); font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">원서접수기간&nbsp;</span></b><b style="font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">2021.07.19.(월) ~ 07.30(금)</b></p><span style="color: rgb(85, 85, 85); font-size: 5pt;"><b></b></span><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"><b><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">▶&nbsp;</span><span style="margin: 0px; padding: 0px; position: relative; color: rgb(0, 89, 255); font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">면접전형일시</span><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">&nbsp;2021.08.04.(수) 예정</span></b></p><span style="color: rgb(85, 85, 85); font-size: 12pt;"><b></b></span><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"></p><div id="hwpEditorBoardContent" data-hjsonver="1.0" data-jsonlen="7425" style="color: rgb(85, 85, 85); font-size: medium; margin: 0px; padding: 0px; text-align: left;"></div><p style="color: rgb(85, 85, 85); font-size: 16px; text-align: left;"></p><span style="color: rgb(85, 85, 85); font-size: 12pt;"><b></b></span><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; text-align: left; line-height: 21.3333px; font-family: 함초롬바탕;"><b><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">▶&nbsp;</span><span style="margin: 0px; padding: 0px; position: relative; color: rgb(0, 89, 255); font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">합격자 발표</span><span style="margin: 0px; padding: 0px; position: relative; font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">&nbsp;2021.08.11.(수)</span></b></p><div id="hwpEditorBoardContent" data-hjsonver="1.0" data-jsonlen="5541" style="color: rgb(0, 0, 0); font-size: medium; margin: 0px; padding: 0px; text-align: start;"></div></div><div style="color: rgb(85, 85, 85); font-size: 16px; margin-top: 20px; text-align: center;"><a href="/gopage/grad/gonotice.jsp?siteGubun=14&amp;bbsConfigFK=418&amp;pkid=91329&amp;menuGubun=1" target="_blank" style="color: white; border: 2px solid rgb(204, 204, 204); background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; line-height: 30px; display: inline-block; cursor: pointer;"><span style="font-size: 12pt;">입학정보 바로가기</span></a>&nbsp;</div><div style="color: rgb(85, 85, 85); font-size: 16px; margin-top: 20px; text-align: center;"><a href="/contents/grad/cor/encourage.html" target="_blank" style="color: white; border: 2px solid rgb(204, 204, 204); background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; line-height: 30px; display: inline-block; cursor: pointer;"><span style="font-size: 12pt;">장학 및 인재양성프로그램 바로가기</span></a><br></div></div></div></div><p style="text-align: center;"><br style="font-size: 13.3333px;"></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1173() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1173() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1173();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+function open_pop1171(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1171" class="layer_pop" style="position:absolute;z-index:1171;border:2px solid #1C6DC7;width:650px;height:420px;left:100px;top:100px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1171").draggable(); '); 
+		document.write('  $("#layer1171").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1171").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1171(){layer1171.style.display="none";}	 	'); 
+		document.write('  	function closeWin1171(){layer1171.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1171", "done" , 1)}		'); 
+		document.write('  	function close7Win1171(){layer1171.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1171", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">2021학년도 6PAC 역량 진단 참여 안내(5.12~)</div>'); 
+		document.write('			<div class="btn_close" onclick="close1171();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<div class="cont">	<div style="text-align: center; line-height: 1.5; font-size: 13.33px;">		<div class="cont" style="color: rgb(85, 85, 85); font-size: 16px;">			<div style="text-align: center; line-height: 1.5;">				<b><span style="font-size: 18pt;">2021학년도 6PAC 역량 진단 참여 안내(5.12~)</span></b></div>			<div style="text-align: left; line-height: 1.5;"><strong><br></strong></div><div style="text-align: left; line-height: 1.5;"><strong>- 진단 대상&nbsp;: 일반학과 1~4학년 누구나 참여 가능!</strong></div><div style="text-align: left; line-height: 1.5;"><strong>- 진단 내용&nbsp;: KPU 6대 핵심역량 수준 측정(10분 내외 소요)</strong><strong><br></strong></div><div style="text-align: left; line-height: 1.5;"><strong>- 진단 방법&nbsp;: 학생 개별 온라인 자가 진단</strong><strong><br></strong></div><div style="text-align: left; line-height: 1.5;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ※ 통합정보시스템 &gt; 학사행정 &gt; 역량진단 &gt; 진단참여</div><div style="text-align: left; line-height: 1.5;"><strong>- 참여혜택 : 추첨을 통해 230명에게 푸짐한 경품 제공</strong></div><div style="text-align: left; line-height: 1.5;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (무선충전 마우스패드, 휴대용 노트북받침대, 무선마우스 등)</div><div style="text-align: center; line-height: 1.5;"><br></div><div style="text-align: center; line-height: 1.5;"><a href="/gopage/main/gonotice.jsp?siteGubun=1&amp;bbsConfigFK=1&amp;pkid=91388&amp;menuGubun=1" target="_blank" style="background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; border: 2px solid rgb(204, 204, 204); color: white; line-height: 30px; display: inline-block; cursor: pointer;">공지사항 바로가기</a></div>		</div>	</div></div><p><br></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1171() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1171() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1171();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+function open_pop1166(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1166" class="layer_pop" style="position:absolute;z-index:1166;border:2px solid #1C6DC7;width:550px;height:475px;left:100px;top:100px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1166").draggable(); '); 
+		document.write('  $("#layer1166").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1166").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1166(){layer1166.style.display="none";}	 	'); 
+		document.write('  	function closeWin1166(){layer1166.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1166", "done" , 1)}		'); 
+		document.write('  	function close7Win1166(){layer1166.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1166", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">한국산업기술대학교 학생증 신청하기</div>'); 
+		document.write('			<div class="btn_close" onclick="close1166();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<p style="text-align: center;"><a href="/gopage/main/gonotice.jsp?siteGubun=1&bbsConfigFK=1&pkid=90030&menuGubun=1"><img style="max-width:100%;" src="/dataview/popup/20210225_1709_1410001.jpg" class="txc-image"></a></p><p style="text-align: center;"><b>※ 이미지 클릭시 공지사항으로 이동합니다.</b></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1166() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1166() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1166();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+function open_pop1175(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1175" class="layer_pop" style="position:absolute;z-index:1175;border:2px solid #1C6DC7;width:500px;height:550px;left:100px;top:100px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1175").draggable(); '); 
+		document.write('  $("#layer1175").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1175").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1175(){layer1175.style.display="none";}	 	'); 
+		document.write('  	function closeWin1175(){layer1175.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1175", "done" , 1)}		'); 
+		document.write('  	function close7Win1175(){layer1175.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1175", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">제21회 산학협동 산업기술대전 </div>'); 
+		document.write('			<div class="btn_close" onclick="close1175();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<p style="text-align: center;"><a href="/gopage/main/gonomalnotice.jsp?siteGubun=1&amp;bbsConfigFK=357&amp;pkid=192898&amp;menuGubun=1"><img style="max-width:100%;" src="/dataview/popup/20211007_1757_1410001.jpg" class="txc-image"></a></p><a target="_blank" href="/gopage/main/gonomalnotice.jsp?siteGubun=1&amp;bbsConfigFK=357&amp;pkid=192898&amp;menuGubun=1"></a><p style="text-align: center;"><b><span style="color: rgb(255, 0, 0);">※ 위 이미지를 선택시 공지사항으로 이동합니다.</span></b></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1175() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1175() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1175();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+function open_pop1176(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1176" class="layer_pop" style="position:absolute;z-index:1176;border:2px solid #1C6DC7;width:500px;height:350px;left:100px;top:100px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1176").draggable(); '); 
+		document.write('  $("#layer1176").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1176").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1176(){layer1176.style.display="none";}	 	'); 
+		document.write('  	function closeWin1176(){layer1176.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1176", "done" , 1)}		'); 
+		document.write('  	function close7Win1176(){layer1176.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1176", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">2022학년도 대학원 신입생 모집 안내</div>'); 
+		document.write('			<div class="btn_close" onclick="close1176();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<div class="cont"><div style="text-align: center; line-height: 1.5;"><div class="cont"><div style="color: rgb(85, 85, 85); line-height: 1.5; font-size: 16px;"><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; line-height: 21.3333px; font-size: 10pt; font-family: 함초롬바탕; color: rgb(0, 0, 0); text-align: center;"><span style="margin: 0px; padding: 0px; position: relative; font-size: 17pt; font-weight: bold; line-height: 36.6667px;">2022학년도 대학원 신입생 모집 안내</span></p></div><div style="line-height: 1.5; text-align: center;"><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; line-height: 21.3333px; font-family: 함초롬바탕; text-align: center;"><br></p><p class="HStyle0" style="margin-top: 0pt; margin-bottom: 0pt; color: rgb(0, 0, 0); font-size: 10pt; text-align: center; line-height: 21.3333px; font-family: 함초롬바탕;"><b><span style="margin: 0px; padding: 0px; position: relative; color: rgb(0, 89, 255); font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">모집일시 :&nbsp;</span></b><b style="font-family: Dotum, 돋움, sans-serif; font-size: 12pt;">2021.11.01.(월) ~ 11.19.(금)</b></p><div id="hwpEditorBoardContent" data-hjsonver="1.0" data-jsonlen="5541" style="color: rgb(0, 0, 0); font-size: medium; margin: 0px; padding: 0px; text-align: start;"></div></div><div style="color: rgb(85, 85, 85); font-size: 16px; margin-top: 20px; text-align: center;"><a href="/gopage/grad/gonotice.jsp?siteGubun=14&amp;bbsConfigFK=418&amp;pkid=193182&amp;menuGubun=1" target="_blank" style="color: white; border: 2px solid rgb(204, 204, 204); background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; line-height: 30px; display: inline-block; cursor: pointer;"><span style="font-size: 12pt;">신입생 모집 안내 바로가기</span></a>&nbsp;</div><div style="color: rgb(85, 85, 85); font-size: 16px; margin-top: 20px; text-align: center;"><a href="/contents/grad/cor/encourage.html" target="_blank" style="color: white; border: 2px solid rgb(204, 204, 204); background: rgb(28, 109, 199); padding: 0px 10px; border-radius: 10px; line-height: 30px; display: inline-block; cursor: pointer;"><span style="font-size: 12pt;">대학원 장학제도 바로가기</span></a><br></div></div></div></div><p style="text-align: center;"><br style="font-size: 13.3333px;"></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1176() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1176() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1176();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+function open_pop1174(){
+		document.write('    <style type="text/css">'); 
+		document.write('		.layer_pop{ background:white; z-index:9999; position:fixed; }'); 
+		document.write('		.layer_pop .pop_top{ padding:0 20px; box-sizing:border-box; height:60px;  }'); 
+		document.write('		.layer_pop .pop_top .tit{ line-height:60px; }'); 
+		document.write('		.layer_pop .pop_top .btn_close{ cursor:pointer; width:17px; height:17px; background:url(http://www.kpu.ac.kr/front/images/btn_close.png) no-repeat; position:absolute; top:22px; right:20px; }'); 
+		document.write('		.layer_pop .pop_center{ padding:30px 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom{ width:100%; position:absolute; bottom:0px; left:0px; border-top:1px solid #E5E5E5; height:39px; padding:0 20px; box-sizing:border-box; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W{ }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > *{ line-height:39px; vertical-align:middle; }'); 
+		document.write('		.layer_pop .pop_bottom > .chk_box_W > label{ color:#999; font-size:12px; }'); 
+		document.write('		.layer_pop .pop_bottom > .btn_close{ cursor:pointer; border-left:1px solid #E5E5E5; text-align:center; font-weight:bold; background:#F3F3F3; width:65px; color:#666; font-size:12px; line-height:38px; position:absolute; top:0px; right:0px; }'); 
+		document.write('	</style>'); 
+		document.write('	<div id="layer1174" class="layer_pop" style="position:absolute;z-index:1174;border:2px solid #1C6DC7;width:550px;height:570px;left:100px;top:100px;display:;overflow:hidden;" ">'); 
+		document.write('  <script language="JavaScript"> '); 
+		document.write('  $("#layer1174").draggable(); '); 
+		document.write('  $("#layer1174").bind("dragstart",function(event, ui){ $(this).fadeTo(500,0.5); }); '); 
+		document.write('  $("#layer1174").bind("dragstop",function(event, ui){ $(this).fadeTo(500,1); }); '); 
+		document.write('  	function close1174(){layer1174.style.display="none";}	 	'); 
+		document.write('  	function closeWin1174(){layer1174.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1174", "done" , 1)}		'); 
+		document.write('  	function close7Win1174(){layer1174.style.display="none" ;	'); 
+		document.write('  			setCookie( "popName1174", "done" , 7)}		'); 
+		document.write('	function setCookie(name, value, expiredays){'); 
+		document.write('		var todayDate = new Date();'); 
+		document.write('		todayDate.setDate(todayDate.getDate() + expiredays);'); 
+		document.write('		todayDate.setYear(todayDate.getFullYear());'); 
+		document.write('		todayDate.setMonth(todayDate.getMonth());'); 
+		document.write('		todayDate.setDate(todayDate.getDate());'); 
+		document.write('		todayDate.setHours(0);'); 
+		document.write('		todayDate.setMinutes(0);'); 
+		document.write('		todayDate.setSeconds(0);'); 
+		document.write('		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";";'); 
+		document.write('	}'); 
+		document.write('  </script>'); 
+		document.write('		<div class="pop_top" style="background:#1C6DC7;">'); 
+		document.write('			<div class="tit" style="color:white; font-size:17px;">K-Digital 훈련원</div>'); 
+		document.write('			<div class="btn_close" onclick="close1174();"></div>'); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_center">'); 
+		document.write('  			<p style="text-align: center;"><a href="http://digital.kpu.ac.kr/" target="_blank"><img style="max-width:100%;" src="/dataview/popup/20210928_1436_3310001.jpg" class="txc-image"></a></p><p style="text-align: center;"><a href="http://digital.kpu.ac.kr/" target="_blank"></a></p><p style="text-align: center;"><b><span style="color: rgb(255, 0, 0);">※ 이미지 선택시 홈페이지로 이동합니다.</span></b></p> '); 
+		document.write('		</div>'); 
+		document.write('		<div class="pop_bottom">'); 
+		document.write('			<div class="chk_box_W">'); 
+		document.write('				<input class="" onclick=closeWin1174() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>오늘 하루 이 창을 열지 않음</label>'); 
+		document.write('				<input class="" onclick=close7Win1174() type="checkbox" name="" value=""/>'); 
+		document.write('				<label>일주일동안 이 창을 열지 않음</label>'); 
+		document.write('			</div>'); 
+		document.write('			<div class="btn_close" onclick="close1174();">닫기</div>'); 
+		document.write('		</div>'); 
+		document.write('	</div>'); 
+		document.write(''); 
+}
+  
+var chkDate = new Date();  
+var yearStr, monthStr, dayStr;   
+yearStr = chkDate.getFullYear();    
+monthStr = chkDate.getMonth()+1;   
+dayStr = chkDate.getDate();    
+if (monthStr<10){    
+   monthStr = '0' + monthStr;    
+}    
+if (dayStr<10){   
+  dayStr = '0' + dayStr;  
+}   
+tmpStr = '' + yearStr + '-' + monthStr + '-' + dayStr;  
+  
+function cookieCheck(){  
+	if(getCookie('popName1172')!='done'){  
+	 if (tmpStr>='2021-05-31' && tmpStr<='2021-06-25'){ 
+	 	  open_pop1172(); 
+	 } 
+ } 
+if(getCookie('popName1165')!='done'){  
+	 if (tmpStr>='2021-02-25' && tmpStr<='2021-02-26'){ 
+	 	  open_pop1165(); 
+	 } 
+ } 
+if(getCookie('popName1173')!='done'){  
+	 if (tmpStr>='2021-07-19' && tmpStr<='2021-07-30'){ 
+	 	  open_pop1173(); 
+	 } 
+ } 
+if(getCookie('popName1171')!='done'){  
+	 if (tmpStr>='2021-05-28' && tmpStr<='2021-06-08'){ 
+	 	  open_pop1171(); 
+	 } 
+ } 
+if(getCookie('popName1166')!='done'){  
+	 if (tmpStr>='2021-02-26' && tmpStr<='2021-03-05'){ 
+	 	  open_pop1166(); 
+	 } 
+ } 
+if(getCookie('popName1175')!='done'){  
+	 if (tmpStr>='2021-10-08' && tmpStr<='2021-10-14'){ 
+	 	  open_pop1175(); 
+	 } 
+ } 
+if(getCookie('popName1176')!='done'){  
+	 if (tmpStr>='2021-11-08' && tmpStr<='2021-11-14'){ 
+	 	  open_pop1176(); 
+	 } 
+ } 
+if(getCookie('popName1174')!='done'){  
+	 if (tmpStr>='2021-09-30' && tmpStr<='2021-10-06'){ 
+	 	  open_pop1174(); 
+	 } 
+ } 
+    
+}    
+cookieCheck();

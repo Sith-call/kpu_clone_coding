@@ -1,0 +1,87 @@
+function movieclipcheck() {
+//		if(window.VBN_prepareSubmit != null){if(!VBN_prepareSubmit()) return false;}
+		var o = document.form01;
+		if( o.title.value.length <= 0 ){
+			alert("제목을 입력해주세요.");
+			o.title.focus();
+			return false;
+		}
+		if( o.url.value.length <= 0 ){
+			alert("동영상 URL을 입력해주세요.");
+			o.url.focus();
+			return false;
+		}
+		var length = o.url.value.length;
+		var url = o.url.value.substring(length-3,length);
+		if (url != "wma" && url != "WMA" && url != "wmv" && url != "WMV" && url != "avi" && url != "AVI" && url != "asf" && url != "ASF" && url != "swf" && url != "SWF"){
+			alert("확장자를 확인해 주세요. \n ex) .wma, .wmv, .avi, .asf, .swf");
+			o.url.focus();
+			return false;
+		}
+		if (o.uploadFile1.value==""){
+		  alert("이미지를 첨부해주세요.");
+		  o.uploadFile1.focus();
+		  return false;
+		}else if(o.uploadFile1.value != "" && checkImgFormat_add(o.uploadFile1.value) == false){
+			return false;
+		}
+		if( o.scontent.value.length <= 0 ){
+		   alert("내용을 입력해주세요.");
+		   o.scontent.focus();
+		   return false;
+		}
+	  document.form01.submit();
+	}
+	 function movieclipmodifycheck() {
+		if(window.VBN_prepareSubmit != null){if(!VBN_prepareSubmit()) return false;}
+		var o = document.form01;
+		if( o.title.value.length <= 0 ){
+		   alert("제목을 입력해주세요.");
+		   o.title.focus();
+		   return false;
+		}
+		if( o.url.value.length <= 0 ){
+		   alert("동영상 URL을 입력해주세요.");
+		   o.url.focus();
+		   return false;
+		}	
+		var length = o.url.value.length;
+		var url = o.url.value.substring(length-3,length);
+		if (url != "wma" && url != "WMA" && url != "wmv" && url != "WMV" && url != "avi" && url != "AVI" && url != "asf" && url != "ASF" && url != "swf" && url != "SWF"){
+			alert("확장자를 확인해 주세요. \n ex) .wma, .wmv, .avi, .asf, .swf");
+			o.url.focus();
+			return false;
+		}
+		if( o.scontent.value.length <= 0 ){
+		   alert("내용을 입력해주세요.");
+		   o.scontent.focus();
+		   return false;
+		}
+	  document.form01.submit()
+	}
+
+function checkSearch() {  
+  var o = document.search;
+  if( o.searchValue.value.length <= 0 ){
+     alert("검색어를 입력해주세요.");
+     o.searchValue.focus();
+     return;
+  }
+  document.search.submit()
+}
+function openMovPop(seq){
+url="/front/prmovieviewpopup.do?seq="+seq;
+
+window.open(url, "popup", "toolbar=no,menubar=no, width=730,height=680,left=50,top=50");
+
+}
+function popclose(){
+	window.close();
+}
+function Del_check(o){
+	var chk = confirm("삭제하시겠습니까?");
+	if (chk == false){
+		return false;
+	} 
+	o.submit()
+}

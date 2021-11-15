@@ -1,0 +1,87 @@
+var topHtml ="";
+topHtml = topHtml + ('		<div class="section">\n');
+topHtml = topHtml + ('			<div id="skip">\n');
+topHtml = topHtml + ('				<a id="tomain" href="#main">본문바로가기</a>\n');
+topHtml = topHtml + ('			</div>\n');
+topHtml = topHtml + ('			<div class="r">\n');
+topHtml = topHtml + ('				<div class="c q1">\n');
+topHtml = topHtml + ('					<div class="site">\n');
+topHtml = topHtml + ('						<h1 class="domain"><a href="/index.do"><img src="/front/images/header_logo.png"  alt="한국산업기술대학교"></a></h1>\n');
+topHtml = topHtml + ('						<h2 class="subdomain"></h2>\n');
+topHtml = topHtml + ('					</div>\n');
+topHtml = topHtml + ('				</div>\n');
+topHtml = topHtml + ('				<!--// .c -->\n');
+topHtml = topHtml + ('				<div class="c q2">\n');
+topHtml = topHtml + ('					<iframe src="/global.do" frameborder="no" scrolling="no" class="menu" title="global영역"></iframe>\n');
+topHtml = topHtml + ('				</div>\n');
+topHtml = topHtml + ('				<!--// .c -->\n');
+topHtml = topHtml + ('			</div>\n');
+topHtml = topHtml + ('			<!--// .r -->\n');
+topHtml = topHtml + ('		</div>\n');
+topHtml = topHtml + ('		<!--// .section -->\n');
+topHtml = topHtml + ('		<div class="nonsection">\n');
+topHtml = topHtml + ('			<div class="gnb">\n');
+
+
+var depth1Chk = "N";
+var targetStr = "";
+var last = "";
+
+if(code.length > 0) {	// 메뉴가 존재하면
+	topHtml = topHtml + ('				<div class="a3">\n');
+	topHtml = topHtml + ('					<ul>\n');
+	
+	for(var i=0; i<code.length; i++) {
+		targetStr = "";
+		if(targetName[i] != "") {	// 타겟설정
+			targetStr = 'target="' + targetName[i] + '"';
+		}
+		
+		// SSL 보안서버 적용
+		if(url[i].indexOf("http://") < 0 && (url[i].indexOf("/contents/") > 0 || url[i].indexOf(".html") > 0)) {
+			var htmlUrl = document.location.href.split("//")[1].substring(0, document.location.href.split("//")[1].indexOf("/"));
+			url[i] = "http://" + htmlUrl + url[i];
+		}
+		
+		if(code[i].length==3 && depth1Chk=="N") {	// 최초 1Depth
+			topHtml = topHtml + ('						<li class="q'+code[i].substr(2,1)+'" id="g_'+code[i]+'">\n');
+			topHtml = topHtml + ('							<a href="'+url[i]+'" '+targetStr+'>'+urlname[i]+'</a>\n');
+			topHtml = topHtml + ('							<div class="a4">\n');
+			topHtml = topHtml + ('								<ul>\n');
+			depth1Chk = "Y";
+			last = code[i];
+		}else if(code[i].length==3 && depth1Chk=="Y") {	// 최초가 아닌 1Depth
+			topHtml = topHtml + ('								</ul>\n');
+			topHtml = topHtml + ('							</div>\n');
+			topHtml = topHtml + ('						</li>\n');
+			topHtml = topHtml + ('						<li class="q'+code[i].substr(2,1)+'" id="g_'+code[i]+'">\n');
+			topHtml = topHtml + ('							<a href="'+url[i]+'" '+targetStr+'>'+urlname[i]+'</a>\n');
+			topHtml = topHtml + ('							<div class="a4">\n');
+			topHtml = topHtml + ('								<ul>\n');
+			last = code[i];
+		}
+		if(code[i].length == 6) {
+
+			topHtml = topHtml + ('									<li class="q'+code[i].substr(5,1)+'">\n');
+			topHtml = topHtml + ('										<a href="'+url[i]+'" '+targetStr+'>'+urlname[i]+'</a>\n');
+			topHtml = topHtml + ('									</li>\n');
+		}
+		if(i==(code.length-1)) {	// 마지막 레코드일 경우
+			topHtml = topHtml + ('								</ul>\n');
+			topHtml = topHtml + ('							</div>\n');
+			topHtml = topHtml + ('						</li>\n');
+			
+		}
+	}
+	
+	topHtml = topHtml + ('					</ul>\n');
+	topHtml = topHtml + ('				</div>\n');
+}
+topHtml = topHtml + ('				<div class="prj"></div>\n');
+topHtml = topHtml + ('			</div>\n');
+topHtml = topHtml + ('			<!--// .gnb -->\n');
+topHtml = topHtml + ('		</div>\n');
+topHtml = topHtml + ('		<!--// .nonsection -->\n');
+
+document.write(topHtml);
+$("#g_"+last).addClass("last");

@@ -1,0 +1,971 @@
+$(document).ready(function(){
+	setViewport();
+	setPage();
+	setGnb();
+	setA();
+	setCover();
+	setTour();
+	setFloor();
+	setPopup();
+	// 2014.11.21 Dash형태의 Datepicker 추가 및 set function if문 추가 
+	if($(".datepicker").val() != null){
+	setDatepicker();
+	}
+	if($(".datepickerdash").val() != null){
+	setDatepickerDash();
+	}
+	// 2014.11.21 Dash형태의 Datepicker 추가 및 set function if문 추가 끝
+	setIOSSlider();
+	setRadio();
+	setSheet();
+	setTab();
+	setTable();
+	setToggle();
+	setPlugins();
+	setWatermark();
+});
+
+$(window).load(function() {
+	setGnb();
+	setIframe();
+	setPicture();
+});
+
+$(window).resize(function() {
+	setGnb();
+});
+
+function setTour() {
+	$(".cui.tour").each(function() {
+		var $cui = $(this);
+		var $units = $(".units", $cui);
+		var $a = $(".unit", $(".anchor", $cui));
+		var $n = $(".unit", $(".nameplate", $cui));
+		var $l = $(".unit", $(".layer", $cui));
+		var $an = $("a", $(".anchor, .nameplate", $cui));
+		var index;
+		var duration = ($.browser.msie && $.browser.version < 9) ? 0 : 300;
+		function init() {
+			for (var i = 0; i < $units.length; i++) {
+				$unit = $(".unit", $units.eq(i));
+				$unit.removeClass("hover");
+			}
+			if (!$cui.hasClass("set")) set();
+		};
+		function get(o) {
+			if (!o.hasClass("unit")) return false;
+			return $(".unit", o.parents(".units")).index(o);
+		};
+		function onHover(index) {
+			for (var i = 0; i < $units.length; i++) {
+				$unit = $(".unit", $units.eq(i));
+				$unit.removeClass("hover");
+				$unit.eq(index).addClass("hover");
+			}
+		};
+		function onClick(index) {
+			var $current = $(".unit.current", $(".layer", $cui));
+			var current = $l.index($current);
+			if (current == index) return false;
+			$current.stop().fadeOut(duration);
+			for (var i = 0; i < $units.length; i++) {
+				$unit = $(".unit", $units.eq(i));
+				$unit.removeClass("current");
+				$unit.eq(index).addClass("current");
+			}
+			turnOn($l.eq(index));
+		};
+		function onClose(index) {
+			turnOff($l.eq(index));
+		};
+		function turnOn(o) {
+			o.addClass("current").fadeIn(duration);
+		};
+		function turnOff(o) {
+			o.fadeOut(duration, function() {
+				$(this).removeClass("current");
+			});
+		};
+		function set() {
+			$cui.addClass("set");
+			$an.hover(function() {
+				onHover(get($(this)));
+			});
+			$cui.on("focusout mouseleave", function() {
+				init();
+			});
+			$an.on("click", function(e) {
+				e.preventDefault();
+				onClick(get($(this)));
+			});
+			$l.on("click", ".close", function(e) {
+				e.preventDefault();
+				onClose(get($(this).parents(".unit")));
+			});
+		};
+		init();
+	});
+};
+
+function setFloor() {
+	$(".cui.floor").each(function() {
+		var $cui = $(this);
+		var $select = $(".control select", $cui);
+		var $subunit = $(".scroll .subunit", $cui);
+		var index = 0;
+		function init() {
+			sync();
+			set();
+		};
+		function sync() {
+			index = $("option:selected", $select).val();
+			$subunit.removeClass("current");
+			for (var i = 0; i < $subunit.length; i++) {
+				if (i == index) $subunit.eq(i).addClass("current");
+			}
+		}
+		function set() {
+			$select.on("change", function(e) {
+				sync();
+			});
+		};
+		init();
+	});
+};
+
+
+function setA() {
+	$("body").on("click", "a.disabled", function(e) {
+		e.preventDefault();
+		return false;
+	});
+};
+
+function setDatepicker() {
+	var custom_goToToday = $.datepicker._gotoToday;
+	$.datepicker._gotoToday = function(id) {
+		custom_goToToday.call(this, id);
+		this._selectDate(id);
+	}
+	$.datepicker.regional["ko"] = {
+		closeText: "닫기",
+		prevText: "이전달",
+		nextText: "다음달",
+		currentText: "오늘",
+		monthNames: ["01","02","03","04","05","06","07","08","09","10","11","12"],
+		monthNamesShort: ["1","2","3","4","5","6","7","8","9","10","11","12"],
+		dayNames: ["일","월","화","수","목","금","토"],
+		dayNamesShort: ["일","월","화","수","목","금","토"],
+		dayNamesMin: ["일","월","화","수","목","금","토"],
+		weekHeader: "Wk",
+		dateFormat: "yy.mm.dd",
+		firstDay: 0,
+		isRTL: false,
+		showMonthAfterYear: true,
+		yearSuffix: ""
+	};
+	$.datepicker.setDefaults($.datepicker.regional["ko"]);
+	$(".datepicker").each(function() {
+		var $this = $(this);
+		$this.attr("readonly", true);
+		var from = "1900";
+		var to = "+5";
+		var data = $this.attr("data-json");
+		if (data) {
+			data = JSON.parse(data);
+			if (data.from) from = data.from;
+			if (data.to) to = data.to;
+		}
+		$this.datepicker({
+			beforeShow: function(input, datepicker) {
+				setTimeout(function() {
+					var $buttonPane = $(input)
+							.datepicker("widget")
+							.find(".ui-datepicker-buttonpane");
+					var $button = $("<button class=\"ui-datepicker-reset ui-state-default ui-priority-secondary ui-corner-all\" type=\"button\">초기화</button>");
+						$button
+							.unbind("click")
+							.bind("click", function() {
+								$.datepicker._clearDate(input);
+							});
+						$button.appendTo($buttonPane);
+				}, 1);
+			},
+			buttonImage: "/front/plugins/images/datepicker_trigger.png",
+			buttonImageOnly: true,
+			changeYear: true,
+			changeMonth: true,
+			showButtonPanel: true,
+			showMonthAfterYear: true,
+			showOn: "button",
+			showOtherMonths: true,
+			yearRange: from + ":" + to
+		});
+	});
+};
+
+// 2014.11.21 Dash형태의 Datepicker추가
+function setDatepickerDash() {
+	var custom_goToToday = $.datepicker._gotoToday;
+	$.datepicker._gotoToday = function(id) {
+		custom_goToToday.call(this, id);
+		this._selectDate(id);
+	};
+	$.datepicker.regional["ko-dash"] = {
+		closeText: "닫기",
+		prevText: "이전달",
+		nextText: "다음달",
+		currentText: "오늘",
+		monthNames: ["01","02","03","04","05","06","07","08","09","10","11","12"],
+		monthNamesShort: ["1","2","3","4","5","6","7","8","9","10","11","12"],
+		dayNames: ["일","월","화","수","목","금","토"],
+		dayNamesShort: ["일","월","화","수","목","금","토"],
+		dayNamesMin: ["일","월","화","수","목","금","토"],
+		weekHeader: "Wk",
+		dateFormat: "yy-mm-dd", //dateFormat 변경 
+		firstDay: 0,
+		isRTL: false,
+		showMonthAfterYear: true,
+		yearSuffix: ""
+	};
+	$.datepicker.setDefaults($.datepicker.regional["ko-dash"]);
+	$(".datepickerdash").each(function() { //class name 변경
+		var $this = $(this);
+		$this.attr("readonly", true);
+		var from = "1900";
+		var to = "+5";
+		var data = $this.attr("data-json");
+		if (data) {
+			data = JSON.parse(data);
+			if (data.from) from = data.from;
+			if (data.to) to = data.to;
+		}
+		$this.datepicker({
+			beforeShow: function(input, datepicker) {
+				setTimeout(function() {
+					var $buttonPane = $(input)
+							.datepicker("widget")
+							.find(".ui-datepicker-buttonpane");
+					var $button = $("<button class=\"ui-datepicker-reset ui-state-default ui-priority-secondary ui-corner-all\" type=\"button\">초기화</button>");
+						$button
+							.unbind("click")
+							.bind("click", function() {
+								$.datepicker._clearDate(input);
+							});
+						$button.appendTo($buttonPane);
+				}, 1);
+			},
+			buttonImage: "/cmsm/images/datepicker_trigger.png",
+			buttonImageOnly: true,
+			changeYear: true,
+			changeMonth: true,
+			showButtonPanel: true,
+			showMonthAfterYear: true,
+			showOn: "button",
+			showOtherMonths: true,
+			yearRange: from + ":" + to
+		});
+	});
+};
+//2014.11.21 Dash형태의 Datepicker끝
+
+function setGnb() {
+	$(".gnb").each(function() {
+		var $gnb = $(this);
+		var $a3Li, $a3Current, $a3A, $a4Div;
+		var length;
+		var current = -1;
+		var recent = -1;
+		var duration = 0;
+		function _init() {
+			$("div.a3 > ul, div.a3 > ul > li, div.a3 > ul > li > a", $gnb).addClass("a3");
+			$("div.a4 > ul, div.a4 > ul > li, div.a4 > ul > li > a", $gnb).addClass("a4");
+		}
+		function _get() {
+			$a3Div = $("div.a3", $gnb);
+			$a3Li = $("li.a3", $gnb);
+			$a3Current = $("li.a3.current", $gnb);
+			$a3A = $("a.a3", $gnb);
+			$a4Div = $("div.a4", $gnb);
+			$prj = $(".prj", $gnb);
+			length = $a3Li.length;
+			current = ($a3Current.length) ? $a3Li.index($a3Current) : -1;
+			for (var i = 0; i < $a4Div.length; i++) {
+				var width = $("div.a3", $gnb).width();
+				var o = $("ul.a4", $a4Div.eq(i));
+				var p = o.parents("li.a3");
+				var a4width = o.width() - o.find("li.a4").eq(0).width() / 2;
+				var a3left = p.offset().left - $a3Div.offset().left;
+				var a3width = width - a3left - (p.width() / 2)
+				if (a3width > a4width) {
+					var a4adj = $a3Div.width() - ((a3width + o.find("li.a4").eq(0).width() / 2) - o.width());
+					$a4Div.eq(i).css({
+						"width": a4adj
+					});
+				}
+			}
+		};
+		function _set() {
+			for (var i = 0; i < length; i++) {
+				var status = (i == current) ? 1 : 0;
+				_a4(i, status);
+			}
+			_prj(current);
+		};
+		function _run(index) {
+			var status = 0;
+			if (index != recent) {
+				_a4(recent, 0);
+				_a4(index, 1);
+				_prj(index);
+			} else {
+				return false;
+			}
+		};
+		function _a4(index, status) {
+			if (index == -1) {
+				return false;
+			} else {
+				var o = $("div.a4", $a3Li.eq(index));
+				if (!o.length) return false;
+			}
+			var left = -9999;
+			var zindex = 0;
+			if (status == 1) {
+				recent = index;
+				left = 0;
+				zindex = 1;
+			}
+			o.css({
+				"left": left,
+				"z-index": zindex
+			});
+		};
+		function _prj(index) {
+			if (index == -1) {
+				$prj.css({
+					"left": -9999
+				});
+			} else {
+				var o = $("div.a4", $a3Li.eq(index));
+				if (o.length < 1) {
+					$prj.css({
+						"left": -9999
+					});
+					return false;
+				}
+				var left = o.parents("li.a3").offset().left - $gnb.offset().left;
+				var width = o.parents("li.a3").width();
+				var prjLeft = left + (width / 2) - 3;
+				switch (index) {
+					case 5:
+						prjLeft = prjLeft + 12
+						break;
+					default :
+						break;
+				}
+				$prj.css({
+					"left": prjLeft
+				});
+			}
+		};
+		function _activate() {
+			var _isTouchDevice = !!("ontouchstart" in window) || (!!("onmsgesturechange" in window) && !!window.navigator.maxTouchPoints);
+			if (!_isTouchDevice) {
+				$gnb.on("focusin mouseenter", "a", function(e) {
+					$this = $(this);
+					var $thisA = ($this.hasClass("a3")) ? $this : $("a.a3", $this.parents("li.a3"));
+					_run($a3A.index($thisA));
+				});
+				$gnb.on("focusout", "a", function() {
+					/* setTimeout for Chrome */
+					setTimeout(function() {
+						if ($("a:focus", $gnb).length == 0) {
+							_reset();
+						}
+					});
+				});
+				$gnb.on("mouseleave", function() {
+					_reset();
+				});
+			}
+		}
+		function _reset() {
+			if (recent == current) return false;
+			_run(current);
+			// recent = -1;
+			if (current < 0) recent = -1;
+		};
+		_init();
+		_get();
+		_set();
+		_activate();
+	});
+};
+
+function setIframe() {
+	$("iframe").each(function() {
+		var $iframe = $(this);
+		if (($iframe.hasClass("bbs")) || ($iframe.hasClass("subcontents"))) {
+			var height = $iframe.contents().find(".page").height();
+			$iframe.css({
+				"height": height
+			});
+		}
+	});
+};
+
+function setIOSSlider() {
+	$(".cui.iosslider").each(function() {
+		var $cui = $(this);
+		if ($cui.length < 1) return false;
+		var $control = $(".control", $cui);
+		var $indicator = $(".indicator", $control);
+		var $navigator = $(".navigator", $control);
+		var $led = $(".led", $indicator);
+		var $this = $(".this", $indicator);
+		var $total = $(".total", $indicator);
+		var $prev = $(".prev", $navigator);
+		var $next = $(".next", $navigator);
+		var $pause = $(".pause", $navigator);
+		var duration = 500;
+		var interval = 3000;
+		var data = $this.attr("data-json");
+		if (data) {
+			data = JSON.parse(data);
+			if (data.duration) duration = data.duration;
+			if (data.interval) interval = data.interval;
+		}
+		$cui.iosSlider({
+			autoSlide: true,
+			autoSlideTimer: interval,
+			autoSlideTransTimer: duration,
+			desktopClickDrag: true,
+			infiniteSlider: true,
+			navPrevSelector: $prev,
+			navNextSelector: $next,
+			autoSlideToggleSelector: $pause,
+			snapToChildren: true,
+			startAtSlide: 1,
+			onSlideChange: setControl,
+			onSliderLoaded: setControl
+		});
+		function setControl(args) {
+			$this.html(args.currentSlideNumber);
+			$total.html(args.data.numberOfSlides);
+		};
+	});
+};
+
+function setPage() {
+	var $page = $(".page");
+	if (!$page.length) return false;
+	var a = new Array();
+	function _initPage() {
+		for (var i = 0; i < a.length; i++) {
+			a[i] = 0;
+		}
+	};
+	function _getPage() {
+		var level, value;
+		var classes = $page.attr("class").split(" ");
+		for (var i = 0; i < classes.length; i++) {
+			if (classes[i].match(/^a(\d)-/)) {
+				classes[i] = classes[i].replace("a", "");
+				level = classes[i].split("-")[0];
+				value = classes[i].split("-")[1];
+				a[level] = value;
+			}
+		}
+	};
+	function _initGnb() {
+		var $gnb = $(".gnb");
+		$("li", $gnb).removeClass("current");
+	};
+	function _setGnb() {
+		var $gnb = $(".gnb");
+		var $a3Li, $a4Li;
+		$a3Li = $("div.a3 > ul > li", $gnb).eq(a[3] - 1);
+		$a4Li = $("div.a4 > ul > li", $a3Li).eq(a[4] - 1);
+		if (a[3] != 0) $a3Li.addClass("current");
+		if (a[4] != 0) $a4Li.addClass("current");
+	};
+	function _initLnb() {
+		var $lnb = $(".lnb");
+		$lnb.find("li").removeClass("current");
+	};
+	function _setLnb() {
+		var $lnb = $(".lnb");
+		var $a3Li, $a4Li, $a5Li;
+		$a3Li = $("div.a3 > ul > li", $lnb).eq(a[3] - 1);
+		$a4Li = $("div.a4 > ul > li", $a3Li).eq(a[4] - 1);
+		$a5Li = $("div.a5 > ul > li", $a4Li).eq(a[5] - 1);
+		if (a[3] != 0) $a3Li.addClass("current");
+		if (a[4] != 0) $a4Li.addClass("current");
+		if (a[5] != 0) $a5Li.addClass("current");
+	};
+	_initPage();
+	_getPage();
+	_initGnb();
+	_setGnb();
+	_initLnb();
+	_setLnb();
+};
+
+function setPicture() {
+	function _set(o) {
+		var $img = o;
+		var $frame = $img.parent(".cui.picture");
+		var frameWidth = $frame.width();
+		var frameHeight = $frame.height();
+		var frameRatio = frameWidth / frameHeight;
+		if ($img) {
+			var imageWidth = ($img.attr("width")) ? parseInt($img.attr("width")) : $img.width();
+			var imageHeight = ($img.attr("height")) ? parseInt($img.attr("height")) : $img.height();
+			var widthRatio = frameWidth / imageWidth;
+			var heightRatio = frameHeight / imageHeight;
+			$img.attr("width", $img.width());
+			$img.attr("height", $img.height());
+			if ((imageWidth >= frameWidth) || (imageHeight >= frameHeight)) {
+				if (((frameRatio >= 1) && (imageWidth > imageHeight)) || ((frameRatio < 1) && (imageHeight >= imageWidth))) {
+					$img.css({
+						"width": (frameWidth) + "px",
+						"height": (imageHeight * widthRatio) + "px",
+						"margin-top": ((frameHeight - (imageHeight * widthRatio)) / 2) + "px"
+					});
+				} else {
+					$img.css({
+						"width": (imageWidth * heightRatio) + "px",
+						"height": (frameHeight) + "px"
+					});
+				}
+			} else {
+				if (imageHeight < frameHeight) {
+					$img.css({
+						"margin-top": ((frameHeight - imageHeight) / 2) + "px"
+					});
+				}
+			}
+		}
+	};
+	$(".cui.picture img.proportional").each(function() {
+		_set($(this));
+	});
+};
+
+function setPlugins() {
+	$("a.mailto").each(function() {
+		$(this).mailto();
+	});
+	$(".cui.select").each(function() {
+		$(this).customSelect();
+	});
+	$(".center-middle").each(function() {
+		setCenterMiddle($(this));
+	});
+};
+
+function setRadio() {
+	// SYNC
+	function _set(o) {
+		var $cui = o.parent(".cui.radio");
+		var name = o.attr("name");
+		var $radio = $("input[type=radio][name=" + name + "]");
+		var $label = "";
+		for (var i = 0; i < $radio.length; i++) {
+			$label = $radio.eq(i).next("label");
+			if ($radio.eq(i).is(":checked")) {
+				$label.addClass("checked");
+			} else {
+				$label.removeClass("checked");
+			}
+		}
+	}
+	$("body").on("change", ".cui.radio input[type=radio]", function() {
+		_set($(this));
+	});
+	$(".cui.radio input[type=radio]").each(function() {
+		_set($(this));
+	});
+};
+
+function setPopup() {
+	$("body").on("click", ".run-popup:not(.disabled)", function(e) {
+		e.preventDefault();
+		var $this = $(this);
+		if ($this.parent().hasClass("disabled")) return false;
+		var href = $this.attr("href");
+		if (!href) return false;
+		var name = href.match(/.*\/(.*)$/)[1];
+		name = name.replace(/\W/g, "");
+		var data = $this.attr("data-json");
+		var width = $this.runPopup.defaults.width;
+		var height = $this.runPopup.defaults.height;
+		var left = $this.runPopup.defaults.left;
+		var top = $this.runPopup.defaults.top;
+		var scrollbars = $this.runPopup.defaults.scrollbars;
+		if (data) {
+			data = JSON.parse(data);
+			if (data.width) width = data.width;
+			if (data.height) height = data.height;
+			if (data.scrollbars) scrollbars = data.scrollbars;
+		}
+		if (width != $this.runPopup.defaults.width) left = (screen.availWidth - width) / 2;
+		if (height != $this.runPopup.defaults.height) top = (screen.availHeight - height) / 2;
+		$this.runPopup({
+			name: name,
+			url: href,
+			left: left,
+			top: top,
+			width: width,
+			height: height,
+			scrollbars: scrollbars
+		});
+	});
+};
+
+function setSheet() {
+	$(".pane.bbs").each(function() {
+		var $pane = $(this);
+		var $sheet = $(".sheet", $pane);
+		var $a = $("a", $sheet);
+		var $current = $(".sheet.current", $pane);
+		var index = ($current.length) ? $pane.index($current) : 0;
+		function init() {
+			$sheet.removeClass("current");
+			$sheet.eq(index).addClass("current");
+		};
+		function set() {
+			$a.on("focusin click", function(e) {
+				var $this = $(this);
+				if ($this.hasClass("h1")) e.preventDefault();
+				index = $sheet.index($(this).parents(".sheet"));
+				init();
+			});
+		};
+		init();
+		set();
+	});
+};
+
+function setTab() {
+	$(".cui.tab").each(function() {
+		var $cui = $(this);
+		var $tabs = $(".tabs", $cui);
+		var $tab = $(".tab", $tabs.eq(0));
+		var $label = $(".tab .label", $tabs.eq(0));
+		var $current = $(".tab.current", $tabs.eq(0));
+		var index = ($current.length) ? $tab.index($current) : 0;
+		function _init() {
+			for (var i = 0; i < $tabs.length; i++) {
+				$tab = $(".tab", $tabs.eq(i));
+				$tab.removeClass("current");
+				$tab.eq(index).addClass("current");
+			}
+			$tab = $(".tab", $tabs.eq(0));
+		};
+		if ($cui.hasClass("m2")) {
+			$tab.click(function(e) {
+				e.preventDefault();
+				var $this = $(this);
+				index = $tab.index($this);
+				_init();
+			});
+		}
+		_init();
+	});
+};
+
+function setCover() {
+	$(".cui.cover").each(function() {
+		var $cui = $(this);
+		var $tr = $("tr", $cui);
+		var $th = $("th", $cui);
+		var $radio = $("input[type=radio]", $th);
+		var index;
+		function get() {
+			for (var i = 0; i < $radio.length; i++) {
+				if ($radio.eq(i).is(":checked")) index = i;
+			}
+		};
+		function init() {
+			get();
+			set();
+		};
+		function run(o) {
+			for (var i = 0; i < $radio.length; i++) {
+				var $th = $("th", $tr.eq(i));
+				var $td = $("td", $tr.eq(i));
+				if ($radio.eq(i).is(":checked")) {
+					$td.addClass("current");
+				} else {
+					$td.removeClass("current");
+				}
+				if ($.browser.msie && $.browser.version < 9) {
+					$th.css({
+						"height": "auto"
+					});
+					$(".fields", $th).css({
+						"margin": 0
+					});
+				}
+			}
+		};
+		function set() {
+			$cui.on("change", $radio, function() {
+				run($(this));
+			});
+		};
+		init();
+	});
+};
+
+function setTable() {
+	$("table").each(function() {
+		var $table = $(this);
+		var $row = $("> thead > tr, > tbody > tr, > tr", $table);
+		var $cell;
+		var rowspan = 0;
+		function setLeft() {
+			for (var i = 0; i < $row.length; i++) {
+				$cell = $row.eq(i).find("th, td").eq(0);
+				if (rowspan < 1) $cell.addClass("first-child");
+				if ($cell.attr("rowspan") > 1) {
+					rowspan = ($cell.attr("rowspan") > rowspan) ? $cell.attr("rowspan") : rowspan;
+				}
+				rowspan--;
+			};
+		};
+		function setTop() {
+			var $thead = $("> thead", $table);
+			var $roof = ($thead.length > 0) ? $("> thead > tr:first-child", $table) : $("> tbody > tr:first-child", $table);
+			$roof.addClass("first-child");
+		};
+		setLeft();
+		setTop();
+	});
+};
+
+function setToggle() {
+	$(".page").each(function() {
+		var $page = $(this);
+		var $body = $(".body", $page);
+		var $interp = $("> .interp", $body);
+		var $toggler = $(".toggler", $body);
+		$toggler.prepend('<span class="blind">Visual Slide Visible Control Button</span>');
+		var status = $.cookie("toggle");
+		var height = 258;
+		var duration = ($.browser.msie && $.browser.version < 9) ? 0 : 400;
+		function _init() {
+			if (status == 1) $page.removeClass("collapsed");
+			else $page.addClass("collapsed");
+		};
+		function _set() {
+			$toggler.on("click", function(e) {
+				e.preventDefault();
+				_toggle();
+			});
+		};
+		function _toggle() {
+			if (status == 1) {
+				status = 0;
+				height = 0;
+			} else {
+				status = 1;
+				height = 258;
+			}
+			$interp.animate({
+				height: height
+			}, {
+				duration: duration,
+				queue: false,
+				start: function() {
+				},
+				complete: function() {
+					_init();
+					$.cookie("toggle", status, {expires:7});
+				}
+			});
+		};
+		_init();
+		_set();
+	});
+};
+
+function setViewport() {
+	if ($("body").hasClass("popup")) return false;
+	var meta = document.createElement("meta");
+	var name = "viewport";
+	var content = "width=1000";
+	meta.name = name;
+	meta.content = content;
+	$("head").append(meta);
+};
+
+function setWatermark() {
+	$(".watermark[title!=\"\"]:not(.watermarked)").each(function() {
+		$(this).watermark();
+	});
+};
+
+// PLUGIN : RUN POPUP
+(function($) {
+	$.fn.extend({
+		runPopup: function(options) {
+			var options = $.extend({}, $.fn.runPopup.defaults, options);
+			return this.each(function() {
+				var features =
+					"modal"
+					+ ",left=" + options.left
+					+ ",top=" + options.top
+					+ ",width=" + options.width
+					+ ",height=" + options.height
+					+ ",directories=" + options.directories
+					+ ",location=" + options.location
+					+ ",menubar=" + options.menubar
+					+ ",toolbar=" + options.toolbar
+					+ ",scrollbars=" + options.scrollbars
+					+ ",status=" + options.status
+					+ ",resizable=" + options.resizable
+					;
+				var popupWindow = window.open(options.url, options.name, features);
+			});
+		}
+	});
+	$.fn.runPopup.defaults = {
+		name: "",
+		url: "",
+		left: "auto",
+		top: "auto",
+		width: "auto",
+		height: "auto",
+		directories: "no",
+		location: "no",
+		menubar: "no",
+		toolbar: "no",
+		scrollbars: "no",
+		status: "no",
+		resizable: "no",
+	};
+})(jQuery);
+
+// PLUGIN: MAILTO
+$.fn.mailto = function() {
+	return this.each(function(){
+		var emailAddress = $(this).html().replace(/\s*\(.+\)\s*/, "@");
+		$(this).before("<a href=\"mailto:" + emailAddress + "\" rel=\"nofollow\" title=\"" + emailAddress + "\" class=\"email\">" + emailAddress + "</a>").remove();
+	});
+};
+
+// PLUGIN: WATERMARK
+(function($) {
+	$.fn.extend({
+		watermark: function(options) {
+			var options = $.extend({}, $.fn.watermark.defaults, options);
+			return this.each(function() {
+				// if (this.tagName != "INPUT") return false;
+				var $wrap, $input, $label;
+				$input = $(this);
+				if ($input.hasClass("watermarked")) return false;
+				$input.addClass("watermarked");
+				$input.wrap("<span></span>");
+				$wrap = $input.parent("span");
+				$label = $("<label></label>").appendTo($wrap);
+				if ($input.attr("id")) $label.attr("for", $input.attr("id"));
+				$wrap.addClass("ui-watermark-wrap");
+				$label.addClass("ui-watermark-label");
+				function init() {
+					var text = ($input.attr("title") || $input.attr("value"));
+					var left = parseInt($input.css("left")) || 0;
+					var top = parseInt($input.css("top")) || 0;
+					left += parseInt($input.css("border-left-width")) || 0;
+					top += parseInt($input.css("border-top-width")) || 0;
+					$label.text(text);
+					$label.css({
+						"left": left,
+						"top": top
+					});
+					var properties = "width;height;"
+						+ "line-height;vertical-align;text-align;text-indent;"
+						+ "font-family;font-size;font-style;font-weight;color;letter-spacing;"
+						+ "margin-top;margin-right;margin-bottom;margin-left;"
+						+ "padding-top;padding-right;padding-bottom;padding-left;";
+					var property = new Array();
+					property = properties.split(";");
+					$.each(property, function(item, value) {
+						$label.css(value, $input.css(value));
+						$label.css({
+							"opacity": "0.4",
+							"filter": "alpha(opacity=40)"
+						});
+					});
+				};
+				init();
+				function set() {
+					if (options.text) $label.text(options.text);
+					if (options.left) $label.css("left", options.left);
+					if (options.top) $label.css("top", options.top);
+					if (options.width) $label.css("width", options.width);
+					if (options.height) $label.css("height", options.height);
+					if (options.lineHeight) $label.css("line-height", options.lineHeight);
+					if (options.verticalAlign) $label.css("vertical-align", options.verticalAlign);
+					if (options.textAlign) $label.css("text-align", options.textAlign);
+					if (options.textIndent) $label.css("text-indent", options.textIndent);
+					if (options.fontFamily) $label.css("font-family", options.fontFamily);
+					if (options.fontSize) $label.css("font-size", options.fontSize);
+					if (options.fontStyle) $label.css("font-style", options.fontStyle);
+					if (options.fontWeight) $label.css("font-weight", options.fontWeight);
+					if (options.color) $label.css("color", options.color);
+					if (options.letterSpacing) $label.css("letter-spacing", options.letterSpacing);
+					if (options.marginTop) $label.css("margin-top", options.marginTop);
+					if (options.marginRight) $label.css("margin-right", options.marginRight);
+					if (options.marginBottom) $label.css("margin-bottom", options.marginBottom);
+					if (options.marginLeft) $label.css("margin-left", options.marginLeft);
+					if (options.paddingTop) $label.css("padding-top", options.paddingTop);
+					if (options.paddingRight) $label.css("padding-right", options.paddingRight);
+					if (options.paddingBottom) $label.css("padding-bottom", options.paddingBottom);
+					if (options.paddingLeft) $label.css("padding-left", options.paddingLeft);
+				};
+				set();
+				if ($input.val()) $label.hide();
+				$label.on("click", function() {
+					$input.focus();
+				});
+				$input.on("focus blur", function(e) {
+					if (this.value) return false;
+					var duration = ($.browser.msie && $.browser.version < 9) ? 0 : 400;
+					if (e.type == "focus") $label.fadeOut(duration);
+					else if (e.type == "blur") $label.fadeIn(duration);
+					else return false;
+				});
+			});
+		}
+	});
+	$.fn.watermark.defaults = {
+		text: false,
+		left: false,
+		top: false,
+		width: false,
+		height: false,
+		lineHeight: false,
+		verticalAlign: false,
+		textAlign: false,
+		textIndent: false,
+		fontFamily: false,
+		fontSize: false,
+		fontStyle: false,
+		fontWeight: false,
+		color: false,
+		letterSpacing: false,
+		marginLeft: false,
+		marginTop: false,
+		paddingLeft: false,
+		paddingTop: false
+	};
+})(jQuery);
+
+$(document).ready(function(){
+	var str = '<span class="blind">홈</span>';
+	$('.location .path.home a').prepend(str);
+	$('.location .path.home a').attr('title','홈');
+});

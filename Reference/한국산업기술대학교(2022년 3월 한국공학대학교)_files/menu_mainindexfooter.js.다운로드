@@ -1,0 +1,139 @@
+document.domain = "kpu.ac.kr";
+
+function goURL1() { 
+	if(this.go.value != "default") 
+	{ 
+	URL = this.go.value 
+	window.open(URL,'_blank','') 
+	} 
+}
+//사물함 팝업조회
+function privatePopView(){
+	url = "/private.html";
+  open_window(url, "개인정보보호정책", "100", "100", "620", "700", "", "", "", "auto", "");	
+}
+
+var footerHtml = "";
+
+footerHtml= footerHtml+ ('		<div class="section">\n');
+footerHtml= footerHtml+ ('			<div class="r">\n');
+footerHtml= footerHtml+ ('				<div class="c q1">\n');
+footerHtml= footerHtml+ ('					<div class="site">\n');
+footerHtml= footerHtml+ ('						<h1 class="domain"><a href="/index.do"><img src="/front/images/footer_logo.png" alt="한국산업기술대학교"></a></h1>\n');
+footerHtml= footerHtml+ ('						<h2 class="subdomain"></h2>\n');
+footerHtml= footerHtml+ ('					</div>\n');
+footerHtml= footerHtml+ ('				</div>\n');
+footerHtml= footerHtml+ ('				<!--// .c -->\n');
+footerHtml= footerHtml+ ('				<div class="c q2">\n');
+footerHtml= footerHtml+ ('					<div class="menu">\n');
+footerHtml= footerHtml+ ('						<ul>\n');
+footerHtml= footerHtml+ ('							<li class="q1"><a href="javascript:void(0);"  onClick="privacyPolicy()">개인정보처리방침</a></li>\n');// js/commonSelectFooter.js
+footerHtml= footerHtml+ ('							<li class="q1"><a href="javascript:void(0);"  onClick="privacyPolicyBoard()">개인정보 목적외 이용·제공대장</a></li>\n'); //js/commonSelectFooter.js
+footerHtml= footerHtml+ ('							<li class="q2"><a href="javascript:void(0);"  onClick="infoSecurityPractice()">정보보호실천수칙</a></li>\n');// js/commonSelectFooter.js
+footerHtml= footerHtml+ ('							<li class="q3"><a href="/contents/main/cor/infointro.html" target="_blank">정보공개</a></li>\n');
+//footerHtml= footerHtml+ ('							<li class="q4"><a href="http://www.kpu.ac.kr/download_file/homepage_operate.pdf" target="_blank">홈페이지운영지침</a></li>\n');
+footerHtml= footerHtml+ ('							<li class="q4"><a href="http://www.academyinfo.go.kr/pubinfo/pubinfo1600/doInit.do?schlId=0000247" target="_blank">대학정보공시</a></li>\n');
+footerHtml= footerHtml+ ('							<li class="q5"><a href="https://113366.com">원격지원</a></li>\n');
+footerHtml= footerHtml+ ('						</ul>\n');
+footerHtml= footerHtml+ ('					</div>\n');
+footerHtml= footerHtml+ ('					<div class="info">\n');
+footerHtml= footerHtml+ ('						<div class="address">\n');
+//footerHtml= footerHtml+ ('							<span class="q1">429-793 경기도 시흥시 산기대학로 237 (정왕동) 한국산업기술대학교</span>\n');
+footerHtml= footerHtml+ ('							<span class="q1">15073 경기도 시흥시 산기대학로 237 (정왕동) 한국산업기술대학교</span>\n');
+footerHtml= footerHtml+ ('							<span class="q2">대표전화 031-8041-1000</span>\n');
+footerHtml= footerHtml+ ('							<span class="q3">입학안내 1588-2036</span>\n');
+footerHtml= footerHtml+ ('						</div>\n');
+footerHtml= footerHtml+ ('						<div class="copyright">\n');
+footerHtml= footerHtml+ ('							<span class="q1">COPYRIGHT 2014 KOREA POLYTECHNIC UNIVERSITY. ALL RIGHTS RESERVED.</span>\n');
+footerHtml= footerHtml+ ('							<span class="q2"><a href="#" class="mailto">webmaster@kpu.ac.kr</a></span>\n');
+footerHtml= footerHtml+ ('						</div>\n');
+footerHtml= footerHtml+ ('					</div>\n');
+footerHtml= footerHtml+ ('				</div>\n');
+footerHtml= footerHtml+ ('				<!--// .c -->\n');
+footerHtml= footerHtml+ ('				<div class="c q3">\n');
+footerHtml= footerHtml+ ('					<div class="shortcut">\n');
+footerHtml= footerHtml+ ('						<div class="r">\n');
+footerHtml= footerHtml+ ('							<div class="c">\n');
+//footerHtml= footerHtml+ ('								<select name="select" onchange="if(this.value) moveFamily(this.value);">\n');
+//footerHtml= footerHtml+ ('									<option>관련사이트바로가기</option>\n');
+////footerHtml= footerHtml+ ('									<option value="http://kms.kpu.ac.kr">::지식경영포탈(KMS)</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/grad/index.do">::일반대학원</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/polygradua_new/index.do">::산업기술경영대학원</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/energygrad_new/index.do">::지식기반기술에너지대학원</option>');
+//footerHtml= footerHtml+ ('									<option value="http://sanhak.kpu.ac.kr">::산학협력단</option>');
+//footerHtml= footerHtml+ ('									<option value="http://tip.kpu.ac.kr">::기술혁신파크(TIP)</option>');
+//footerHtml= footerHtml+ ('									<option value="http://tip.kpu.ac.kr">::생활관</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/service_2016/">::학생서비스센터</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/counseling/index.do">::학생상담센터</option>');
+//footerHtml= footerHtml+ ('									<option value="http://job.kpu.ac.kr">::취업·진로지원센터</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/global/index.do">::국제교류</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/news_2016/">::학보사</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/abeek_2016/">::공학교육혁신센터</option>');
+//footerHtml= footerHtml+ ('									<option value="http://abeek.kpu.ac.kr/login.jsp">::공학인증시스템</option>');
+//footerHtml= footerHtml+ ('									<option value="http://dual.kpu.ac.kr">::일학습병행사업단</option>');
+////footerHtml= footerHtml+ ('									<option value="http://www.ikpu.ac.kr/index.jsp">::원격기술교육센터</option>');
+//footerHtml= footerHtml+ ('									<option value="http://ctl.kpu.ac.kr">::교수학습지원센터</option>');
+////footerHtml= footerHtml+ ('									<option value="http://www.kpu-sanhak.ac.kr/contents/EnP_02List.jsp">::기업지원서비스</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/itp_2016/">::산업기술최고경영교육원(ITP)</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpubic.or.kr/">::창업보육센터</option>'); 
+//footerHtml= footerHtml+ ('									<option value="http://arts.kpu.ac.kr/">::KPU아트센터</option>');
+////footerHtml= footerHtml+ ('									<option value="http://www.setec.re.kr/">::시흥환경기술개발센터</option>');
+////footerHtml= footerHtml+ ('									<option value="http://subweb.kpu.ac.kr/energy/index.do">::에너지인력양성센터</option>');
+//footerHtml= footerHtml+ ('									<option value="http://family.kpu.ac.kr/">::가족회사종합지원센터</option>');
+//footerHtml= footerHtml+ ('									<option value="http://library.kpu.ac.kr">::도서관</option>');
+//footerHtml= footerHtml+ ('									<option value="http://www.kpu.ac.kr/language_2016/">::어학원</option>');
+//footerHtml= footerHtml+ ('									<option value="http://lifelong.kpu.ac.kr/">::평생교육원</option>');
+//footerHtml= footerHtml+ ('									<option value="http://klec.kpu.ac.kr">::한국어교육센터</option>');
+//footerHtml= footerHtml+ ('								</select>\n');
+footerHtml= footerHtml+commonFooterMoveFamily(true);
+footerHtml= footerHtml+ ('							</div>\n');
+footerHtml= footerHtml+ ('						</div>\n');
+footerHtml= footerHtml+ ('					</div>\n');
+footerHtml= footerHtml+ ('					<div class="counter">\n');
+footerHtml= footerHtml+ ('						<div class="q1"><span class="label">Today : </span><span class="value">'+setComma(toCnt)+'</span></div>\n');
+footerHtml= footerHtml+ ('						<div class="q2"><span class="label">Total : </span><span class="value">'+setComma(totalCnt)+'</span></div>\n');
+footerHtml= footerHtml+ ('					</div>\n');
+footerHtml= footerHtml+ ('				</div>\n');
+footerHtml= footerHtml+ ('				<!--// .c -->\n');
+footerHtml= footerHtml+ ('			</div>\n');
+footerHtml= footerHtml+ ('			<!--// .r -->\n');
+footerHtml= footerHtml+ ('		</div>\n');
+footerHtml= footerHtml+ ('		<!--// .section -->\n');
+
+
+document.write(footerHtml);
+
+
+//사물함 팝업조회
+function commonPopView(url, name){
+  open_window(url, name, "100", "100", "620", "700", "", "", "", "auto", "");	
+}
+
+//공동컨텐츠
+var commonUrl = "";
+function commonCMS(url, name, popWidth, popHeight){
+  var commonCMSUrl = commonUrl+url;
+  open_window(commonCMSUrl, name, "100", "100", popWidth, popHeight, "", "", "", "auto", "");	
+}
+
+function moveFamily(obj){
+  if(obj == "관련사이트바로가기"){
+	  //
+  }else if(obj == "http://www.kpu-sanhak.ac.kr/include/loginExec2.jsp"){
+    sitesso.document.form_sanhakgo.submit();
+  }else{
+    window.open(obj);
+  }
+}
+
+//SSO 관련
+document.write('<iframe src="/sitesso.do" width="0" height="0" marginHeight=0 marginWidth=0 frameborder="0" scrolling="no" name="sitesso" allowTransparency="true" title="SSO"></iframe>');
+
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58940450-1', 'auto');
+ga('send', 'pageview');

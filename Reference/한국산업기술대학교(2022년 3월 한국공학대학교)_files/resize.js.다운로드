@@ -1,0 +1,330 @@
+document.domain = "kpu.ac.kr";
+//ifram의 크기를 조절하는 함수 시작
+function init() {  
+  //frame_init();
+  
+  parentResizeIframe('mainFrm');
+  setTop();
+}  
+
+// ifram의 크기 조절함수 끝
+
+function init2() {  
+  //frame_init();
+  parentResizeIframe('quickFrm');
+  setTop();
+}
+
+
+// Browse Type
+// IE Script
+var NS4;
+var IE4;
+if (document.all)
+{
+    IE4 = true;
+    NS4 = false;
+}
+else
+{
+    IE4 = false;
+    NS4 = true;
+}
+isWin = (navigator.appVersion.indexOf("Win") != -1)
+
+
+// onLoad Handler 
+LOAD_LIST = new Array();
+function LH_create()
+{
+    this.LIST = LOAD_LIST;
+    this.add = LH_add;
+    this.exec = LH_exec;
+}
+
+function LH_add(strExec)
+{
+    LOAD_LIST[LOAD_LIST.length] = strExec;
+}
+
+function LH_exec()
+{
+    var list_len = LOAD_LIST.length;
+    for (var i = 0; i < list_len; i++)
+    {
+        eval(LOAD_LIST[i]);
+    }
+}
+
+// 한글 스트링 처리 함수 
+// string String::cut(int len, string tail)
+String.prototype.cut = function(len, tail) 
+{
+    var str = this;
+    var l = 0;
+    for (var i=0; i<str.length; i++) 
+    {
+        l += (str.charCodeAt(i) > 128) ? 2 : 1;
+        if (l > len) return str.substring(0,i) + tail;
+    }
+    return str;
+}
+
+// bool String::bytes(void)
+String.prototype.bytes = function() 
+{
+    var str = this;
+    var l = 0;
+    for (var i=0; i<str.length; i++) 
+        l += (str.charCodeAt(i) > 128) ? 2 : 1;
+
+    return l;
+}
+
+// string String::trim();
+String.prototype.trim = function()
+{
+    return this.replace(/(^\s*)|(\s*$)/g, ""); 
+}
+
+// 따옴표와 역슬래쉬 처리
+function replaceBackslash(paramStr) 
+{
+    var str = paramStr;
+    if (str.indexOf("\\") >= 0) str = str.replace(/\\/g, "\\\\");
+    if (str.indexOf("\"") >= 0) str = str.replace(/\"/g, "\\\"");
+    return str;
+}
+
+function setTop()
+{ 
+	parent.window.scrollTo(0,0);
+}
+// == Iframe Handling ==
+// iframe resize시 최소 width, height
+var frmMinWidth;
+var frmMinHeight;
+var applyMinSize = false;
+// iframe resize시 최대 width, height
+var frmMaxWidth;
+var frmMaxHeight;
+var applyMaxSize = false;
+function setMinSize(width, height)
+{
+    frmMinWidth = width;
+    frmMinHeight = height
+    applyMinSize = true;
+}
+function setMaxSize(width, height)
+{
+    frmMaxWidth = width;
+    frmMaxHeight = height
+    applyMaxSize = true;
+}
+
+function resizeIframe(name) {
+	if(name == null || name == "") {
+		name = "iframe_main";
+    }
+	var frmWidth = 730;	// oBody.scrollWidth;
+    try {
+    	var isDoc = document.compatMode;
+    	if(IE4) {
+    		if(navigator.appName.indexOf("Microsoft") > -1) {	// 마이크로소프트 익스플로어 확인
+    			if(navigator.appVersion.indexOf("MSIE 6") > -1) {	// 버전확인 6
+    				var oBody = document.frames(name).document.body;
+    			} else if(navigator.appVersion.indexOf("MSIE 7") > -1) {	// 버전확인 7
+    				var oBody = document.frames(name).document.body;
+    			} else {
+    				if(isDoc == "CSS1Compat") {	// 웹표준사용여부
+					//alert("111");
+    					var oBody = document.getElementById(name).contentDocument.body;
+    				} else {
+						if( navigator.appVersion.indexOf("MSIE 10") > -1 || navigator.appVersion.indexOf("MSIE 11") > -1){
+							var oBody   = document.getElementById(name).contentDocument.body;
+							frmWidth = "630";
+						}else{
+							var oBody   = document.frames(name).document.body;
+						}
+
+    					//var oBody = document.frames(name).document.body;
+    				}
+    			}
+    		}
+    	} else {
+			//alert("333");
+    		var oBody = document.getElementById(name).contentDocument.body;
+    	}
+    	
+    	var oIFrame = document.getElementById(name);    	
+    	var frmHeight = oBody.scrollHeight;
+        
+    	if(applyMinSize) {
+    		frmWidth  = Math.max(frmWidth, frmMinWidth);
+    		frmHeight = Math.max(frmHeight, frmMinHeight);
+        }
+        if(applyMaxSize) {
+        	frmWidth = Math.min(frmWidth, frmMaxWidth);
+        	frmHeight = Math.min(frmHeight, frmMaxHeight);
+        }
+
+		//alert("11widtg:"+frmWidth+"height:"+frmHeight);
+        if(frmHeight == 0) {
+        	document.all["iframe_main"].reload();
+        } else {
+        	oIFrame.style.height = (frmHeight+35) + "px";
+        	oIFrame.style.width = frmWidth + "px";
+        }
+
+    } catch(e) {}
+}
+
+
+
+function parentResizeIframe(name)
+{ 
+    if (parent && parent != this && parent.resizeIframe != null)
+    {
+       
+        parent.resizeIframe(name);
+    }
+}
+
+// F5를 눌렀을때 iframe 내부만 refresh 되도록 처리 start
+if (NS4) 
+{
+    document.captureEvents(Event.KEYDOWN)
+    document.onkeydown = trapRefreshNS;
+} 
+else if (IE4) 
+{
+    document.onkeydown = trapRefreshIE;
+}
+
+function trapRefreshNS(e)
+{
+    if (e.keyCode == 116)
+    {
+        e.cancelBubble = true; 
+        e.returnValue = false;
+        document.location.reload();
+    }
+}
+
+function trapRefreshIE()
+{
+    if (event.keyCode == 116)
+    {
+        event.keyCode = 0; 
+        event.cancelBubble = true; 
+        event.returnValue = false;
+        document.location.reload();
+    }
+}
+// F5를 눌렀을때 iframe 내부만 refresh 되도록 처리 end
+
+function parentPlusIframe(name, height)
+{
+    if (parent && parent != this && parent.plusIframe != null)
+    {
+        parent.plusIframe(name, height);
+    }
+}
+
+function plusIframe(name, height)     
+{
+    if (name == null || name == "")
+    {
+        name = "mainFrm";
+    }
+    
+    try
+    {
+        if (IE4)
+            var oBody   = document.frames(name).document.body;
+        else
+            var oBody = document.getElementById(name).contentDocument.body;
+        var oIFrame = document.getElementById(name);
+
+        var frmWidth  = oBody.scrollWidth;
+        var frmHeight  = oBody.scrollHeight;
+
+        if (applyMinSize)
+        {
+            frmHeight = Math.max(frmHeight, frmMinHeight);
+        }
+        if (applyMaxSize)
+        {
+            frmHeight = Math.min(frmHeight, frmMaxHeight);
+        }
+        oIFrame.style.height = frmHeight + height;
+    }
+    catch (e)
+    {
+        window.status = "Ifram Size Plus Error";
+    }
+}
+
+
+function init1Pix() {  
+    if (parent && parent != this && parent.resize1Pix != null)
+    {
+        parent.resize1Pix('mainFrm');
+    }
+} 
+
+function resize1Pix(name)
+{
+    if (name == null || name == "")
+    {
+        name = "mainFrm";
+    }
+        
+    try
+    {
+        if (IE4)
+            var oBody   = document.frames(name).document.body;
+        else
+            var oBody = document.getElementById(name).contentDocument.body;
+        var oIFrame = document.getElementById(name);
+
+          oIFrame.style.height = 1;
+    }
+    catch (e) {}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
