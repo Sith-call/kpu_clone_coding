@@ -2,6 +2,8 @@
 
 학교 홈페이지 클론 코딩
 
+![image](https://user-images.githubusercontent.com/57928967/181720277-3d1dd3df-0df9-452a-8dab-f88a4e4d6158.png)
+
 ## CSS Layout
 1차원 배치(가로축 또는 세로축)은 flex 사용
 
